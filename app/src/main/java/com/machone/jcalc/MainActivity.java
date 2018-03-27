@@ -1,7 +1,17 @@
 package com.machone.jcalc;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
@@ -20,6 +30,74 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         registerClickListeners();
+        showWhatsNew();
+    }
+
+    @Override
+    public  boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu){
+        MenuItem jcalc = menu.findItem(R.id.menuitem_jcalc);
+        jcalc.setEnabled(false);
+        jcalc.setVisible(false);
+
+        MenuItem tipcalc = menu.findItem(R.id.menuitem_tipcalc);
+        tipcalc.setEnabled(true);
+        tipcalc.setVisible(true);
+
+        MenuItem about = menu.findItem(R.id.menuitem_about);
+        about.setEnabled(true);
+        about.setVisible(true);
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent;
+        switch (item.getItemId()){
+            case R.id.menuitem_tipcalc:
+                intent = new Intent(getBaseContext(), TipCalcActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                break;
+            case R.id.menuitem_about:
+                intent = new Intent(getBaseContext(), AboutActivity.class);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+        startActivity(intent);
+        return true;
+    }
+
+    private void showWhatsNew(){
+        SharedPreferences prefs = getSharedPreferences("jcalc", Context.MODE_PRIVATE);
+        int current = 0;
+        int saved = prefs.getInt("version_number", 0);
+        try{
+            PackageInfo p = getPackageManager().getPackageInfo(getPackageName(), 0);
+            current = p.versionCode;
+        }catch (Exception ex){}
+
+        if (current > saved){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.whats_new)
+                    .setMessage(R.string.whats_new_text)
+                    .setNeutralButton(R.string.dismiss, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {}});
+            builder.create().show();
+
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("version_number", current);
+            editor.commit();
+        }
     }
 
     private void registerClickListeners() {
@@ -96,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                 // Handle clear all
                 else if (buttonText.equals("C"))
                     clear();
-                // Handle clear entry
+                    // Handle clear entry
                 else if (buttonText.equals("CE")){
                     if (currentOperand.isEmpty()) return;
                     expression = expression.substring(0, expression.lastIndexOf(currentOperand));
