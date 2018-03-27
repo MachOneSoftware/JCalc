@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">JCalc</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_tip_calc">TipCalcActivity</string>
+
+    <string name="TipCalculator">Tip Calculator</string>
+    <string name="About">About</string>
+    <string name="Calculator">Calculator</string>
+
+    <string name="about_description">Mach One Software is an independent project by Jordan Judt.</string>
+    <string name="about_mission">I strive to create high quality, easy-to-use software for all to enjoy.</string>
+    <string name="about_contact">If you\'d like to request a feature or give feedback, send an email:</string>
+    <string name="about_email">apps@jordanjudt.com</string>
+    <string name="review">Review on Google Play</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+
+    <string name="reset">Reset</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="suggested_tips">Suggested Tip:</string>
+    <string name="percent15">15%:</string>
+    <string name="percent175">17.5%:</string>
+    <string name="percent20">20%:</string>
+    <string name="percent25">25%:</string>
+
+    <string name="dismiss">Dismiss</string>
+    <string name="whats_new">What\'s New</string>
+    <string name="whats_new_text">JCalc 1.2.0\n\nThanks for updating JCalc! In this release, we\'ve added a
+        handy tip calculator. Open it up when you get your bill, and you\'ll quickly have a list
+        of common gratuity values to reference. We\'ve also added an About page with contact
+        and social media links. Enjoy!</string>
 </resources>
