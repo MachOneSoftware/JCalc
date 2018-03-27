@@ -1,6 +1,7 @@
 package com.machone.jcalc;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -9,7 +10,17 @@ import java.util.Stack;
  */
 
 public class Calculator {
-    public static String evaluateExpression(String expression){
+    public static String evaluateExpression(String expression, int precision) {
+        String result = BigDecimal.valueOf(
+                Double.parseDouble(
+                evaluateExpression(expression)))
+                .setScale(precision, BigDecimal.ROUND_HALF_UP)
+                .toPlainString();
+
+        return result;
+    }
+
+    public static String evaluateExpression(String expression) {
         ArrayList<String> postfix = convertToPostfix(expression);
         Stack<String> calcStack = new Stack<String>();
 
@@ -38,7 +49,7 @@ public class Calculator {
         return calcStack.pop();
     }
 
-    private static ArrayList<String> convertToPostfix(String infixExpression){
+    private static ArrayList<String> convertToPostfix(String infixExpression) {
         Stack<Character> opStack = new Stack<Character>();
         ArrayList<String> postfix = new ArrayList<String>();
 
@@ -55,8 +66,7 @@ public class Calculator {
                 if ((prevChar >= '0' && prevChar <= '9') || prevChar == '.' || prevChar == Operators.NEGATIVE)
                     num = postfix.remove(postfix.size() - 1);
                 postfix.add(num + String.valueOf(c));
-            }
-            else if (c == '(') {
+            } else if (c == '(') {
                 // Handle negative quantity -(x+y)
                 if (prevChar == Operators.NEGATIVE) {
                     postfix.add(postfix.remove(postfix.size() - 1) + "1");
@@ -68,15 +78,13 @@ public class Calculator {
                     prevChar = Operators.MULTIPLY;
                 }
                 opStack.push(c);
-            }
-            else if (c == ')') {
+            } else if (c == ')') {
                 char pop = opStack.pop();
                 while (pop != '(') {
                     postfix.add(String.valueOf(pop));
                     pop = opStack.pop();
                 }
-            }
-            else
+            } else
                 handleOperator(c, opStack, postfix);
 
             prevChar = c;
@@ -87,7 +95,7 @@ public class Calculator {
         return postfix;
     }
 
-    private static void handleOperator(char token, Stack<Character> opStack, ArrayList<String> postfix){
+    private static void handleOperator(char token, Stack<Character> opStack, ArrayList<String> postfix) {
         if (!opStack.isEmpty()) {
             char prev = opStack.peek();
             while (((token == Operators.PLUS || token == Operators.MINUS) && prev != '(')
