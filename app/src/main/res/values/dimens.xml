@@ -4,4 +4,6 @@
     <dimen name="inputHeight">100dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="tipCalcButtons">80dp</dimen>
+    <dimen name="tipCalcResetWidth">80dp</dimen>
+    <dimen name="tipCalcResetHeight">60dp</dimen>
 </resources>
