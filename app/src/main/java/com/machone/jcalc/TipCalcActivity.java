@@ -98,16 +98,16 @@ public class TipCalcActivity extends AppCompatActivity {
                 setElementVisibilities();
                 String dec = getDecimal() + Operators.MULTIPLY;
 
-                TextView text15 = (TextView)findViewById(R.id.text_tip15);
+                TextView text15 = (TextView)findViewById(R.id.textview_tip15_output);
                 text15.setText("$" + Calculator.evaluateExpression(dec + "0.15", 2));
 
-                TextView text175 = (TextView)findViewById(R.id.text_tip175);
+                TextView text175 = (TextView)findViewById(R.id.textview_tip175_output);
                 text175.setText("$" + Calculator.evaluateExpression(dec + "0.175", 2));
 
-                TextView text20 = (TextView)findViewById(R.id.text_tip20);
+                TextView text20 = (TextView)findViewById(R.id.textview_tip20_output);
                 text20.setText("$" + Calculator.evaluateExpression(dec + "0.2", 2));
 
-                TextView text25 = (TextView)findViewById(R.id.text_tip25);
+                TextView text25 = (TextView)findViewById(R.id.textview_tip25_output);
                 text25.setText("$" + Calculator.evaluateExpression(dec + "0.25", 2));
             }
         });
@@ -119,7 +119,7 @@ public class TipCalcActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.resetBtn).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.button_reset).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 subtotal = "";
                 outToTextView();
@@ -146,12 +146,12 @@ public class TipCalcActivity extends AppCompatActivity {
     }
 
     private void outToTextView() {
-        ((TextView) findViewById(R.id.subtotal)).setText("$" + getDecimal());
+        ((TextView) findViewById(R.id.textview_subtotal_input)).setText("$" + getDecimal());
     }
 
     private void setElementVisibilities() {
         int a = findViewById(R.id.zero).getVisibility();
-        int b = findViewById(R.id.suggestedTip).getVisibility();
+        int b = findViewById(R.id.textview_suggestedtip_string).getVisibility();
 
         findViewById(R.id.zero).setVisibility(b);
         findViewById(R.id.one).setVisibility(b);
@@ -166,15 +166,15 @@ public class TipCalcActivity extends AppCompatActivity {
         findViewById(R.id.cancel).setVisibility(b);
         findViewById(R.id.submit).setVisibility(b);
 
-        findViewById(R.id.suggestedTip).setVisibility(a);
-        findViewById(R.id.text_percent15).setVisibility(a);
-        findViewById(R.id.text_percent175).setVisibility(a);
-        findViewById(R.id.text_percent20).setVisibility(a);
-        findViewById(R.id.text_percent25).setVisibility(a);
-        findViewById(R.id.resetBtn).setVisibility(a);
-        findViewById(R.id.text_tip15).setVisibility(a);
-        findViewById(R.id.text_tip175).setVisibility(a);
-        findViewById(R.id.text_tip20).setVisibility(a);
-        findViewById(R.id.text_tip25).setVisibility(a);
+        findViewById(R.id.textview_suggestedtip_string).setVisibility(a);
+        findViewById(R.id.textview_percent15_string).setVisibility(a);
+        findViewById(R.id.textview_percent175_string).setVisibility(a);
+        findViewById(R.id.textview_percent20_string).setVisibility(a);
+        findViewById(R.id.textview_percent25_string).setVisibility(a);
+        findViewById(R.id.button_reset).setVisibility(a);
+        findViewById(R.id.textview_tip15_output).setVisibility(a);
+        findViewById(R.id.textview_tip175_output).setVisibility(a);
+        findViewById(R.id.textview_tip20_output).setVisibility(a);
+        findViewById(R.id.textview_tip25_output).setVisibility(a);
     }
 }

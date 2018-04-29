@@ -9,13 +9,14 @@
     tools:showIn="@layout/activity_tip_calc">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textview_subtotal_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/subtotal"
+        android:textColor="@color/colorTipTextView"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
@@ -23,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/subtotal"
+        android:id="@+id/textview_subtotal_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -32,12 +33,12 @@
         android:fontFamily="casual"
         android:text="$0.00"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorTipInputText"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_subtotal_string" />
 
     <Button
         android:id="@+id/submit"
@@ -46,9 +47,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_green_light"
+        android:background="@color/colorTipAcceptButton"
         android:fontFamily="casual"
         android:text="✓"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,9 +65,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_red_light"
+        android:background="@color/colorTipCancelButton"
         android:fontFamily="casual"
         android:text="X"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/zero"
@@ -80,9 +83,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorTipNumericButton"
         android:fontFamily="casual"
         android:text="0"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,15 +100,16 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorTipNumericButton"
         android:fontFamily="casual"
         android:text="9"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toEndOf="@+id/eight"
-        app:layout_constraintTop_toBottomOf="@+id/subtotal" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_subtotal_input" />
 
     <Button
         android:id="@+id/eight"
@@ -113,14 +118,15 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorTipNumericButton"
         android:fontFamily="casual"
         android:text="8"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subtotal" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_subtotal_input" />
 
     <Button
         android:id="@+id/seven"
@@ -129,15 +135,16 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorTipNumericButton"
         android:fontFamily="casual"
         android:text="7"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/eight"
         app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subtotal" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_subtotal_input" />
 
     <Button
         android:id="@+id/six"
@@ -146,9 +153,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorTipNumericButton"
         android:fontFamily="casual"
         android:text="6"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -163,9 +171,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorTipNumericButton"
         android:fontFamily="casual"
         android:text="5"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -179,9 +188,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorTipNumericButton"
         android:fontFamily="casual"
         android:text="4"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/five"
@@ -196,9 +206,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorTipNumericButton"
         android:fontFamily="casual"
         android:text="3"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -213,9 +224,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorTipNumericButton"
         android:fontFamily="casual"
         android:text="2"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -229,9 +241,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorTipNumericButton"
         android:fontFamily="casual"
         android:text="1"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/two"
@@ -240,132 +253,143 @@
         app:layout_constraintTop_toBottomOf="@+id/four" />
 
     <TextView
-        android:id="@+id/suggestedTip"
+        android:id="@+id/textview_suggestedtip_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/suggested_tips"
+        android:textColor="@color/colorTipTextView"
         android:textSize="24sp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subtotal" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_subtotal_input" />
 
     <TextView
-        android:id="@+id/text_percent15"
+        android:id="@+id/textview_percent15_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="24dp"
         android:text="@string/percent15"
+        android:textColor="@color/colorTipTextView"
         android:textSize="30sp"
         android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@+id/centeredView"
-        app:layout_constraintTop_toBottomOf="@+id/suggestedTip" />
+        app:layout_constraintEnd_toStartOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_suggestedtip_string" />
 
     <TextView
-        android:id="@+id/text_percent175"
+        android:id="@+id/textview_percent175_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/percent175"
+        android:textColor="@color/colorTipTextView"
         android:textSize="30sp"
         android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@+id/centeredView"
-        app:layout_constraintTop_toBottomOf="@+id/text_percent15" />
+        app:layout_constraintEnd_toStartOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_percent15_string" />
 
     <TextView
-        android:id="@+id/text_percent20"
+        android:id="@+id/textview_percent20_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/percent20"
+        android:textColor="@color/colorTipTextView"
         android:textSize="30sp"
         android:textStyle="bold"
         android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@+id/centeredView"
-        app:layout_constraintTop_toBottomOf="@+id/text_percent175" />
+        app:layout_constraintEnd_toStartOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_percent175_string" />
 
     <TextView
-        android:id="@+id/text_percent25"
+        android:id="@+id/textview_percent25_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/percent25"
+        android:textColor="@color/colorTipTextView"
         android:textSize="30sp"
         android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@+id/centeredView"
-        app:layout_constraintTop_toBottomOf="@+id/text_percent20" />
+        app:layout_constraintEnd_toStartOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_percent20_string" />
 
     <TextView
-        android:id="@+id/text_tip15"
+        android:id="@+id/textview_tip15_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:textColor="@color/colorTipTextView"
         android:textSize="36sp"
         android:visibility="gone"
-        app:layout_constraintStart_toEndOf="@+id/centeredView"
-        app:layout_constraintTop_toBottomOf="@+id/suggestedTip" />
+        app:layout_constraintStart_toEndOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_suggestedtip_string" />
 
     <TextView
-        android:id="@+id/text_tip175"
+        android:id="@+id/textview_tip175_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textColor="@color/colorTipTextView"
         android:textSize="36sp"
         android:visibility="gone"
-        app:layout_constraintStart_toEndOf="@+id/centeredView"
-        app:layout_constraintTop_toBottomOf="@+id/text_tip15" />
+        app:layout_constraintStart_toEndOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_tip15_output" />
 
     <TextView
-        android:id="@+id/text_tip20"
+        android:id="@+id/textview_tip20_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textColor="@color/colorTipTextView"
         android:textSize="36sp"
         android:textStyle="bold"
         android:visibility="gone"
-        app:layout_constraintStart_toEndOf="@+id/centeredView"
-        app:layout_constraintTop_toBottomOf="@+id/text_tip175" />
+        app:layout_constraintStart_toEndOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_tip175_output" />
 
     <TextView
-        android:id="@+id/text_tip25"
+        android:id="@+id/textview_tip25_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textColor="@color/colorTipTextView"
         android:textSize="36sp"
         android:visibility="gone"
-        app:layout_constraintStart_toEndOf="@+id/centeredView"
-        app:layout_constraintTop_toBottomOf="@+id/text_tip20" />
+        app:layout_constraintStart_toEndOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_tip20_output" />
 
     <Button
-        android:id="@+id/resetBtn"
+        android:id="@+id/button_reset"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/tipCalcResetHeight"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:background="@android:color/holo_orange_dark"
+        android:background="@color/colorTipResetButton"
         android:fontFamily="casual"
         android:text="@string/reset"
+        android:textColor="@color/colorTipButtonText"
         android:textSize="18sp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_percent25" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_percent25_string" />
 
+    <!-- TextView to center suggested tip amounts in ConstraintLayout -->
     <TextView
-        android:id="@+id/centeredView"
+        android:id="@+id/textview_center_helper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -373,9 +397,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/resetBtn"
+        app:layout_constraintBottom_toTopOf="@+id/button_reset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/suggestedTip" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_suggestedtip_string" />
 </android.support.constraint.ConstraintLayout>

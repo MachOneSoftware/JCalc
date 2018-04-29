@@ -3,4 +3,23 @@
     <color name="colorPrimary">#3f51b5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ff4081</color>
+
+    <!-- Main calculator colors -->
+    <color name="colorMainNumericButton">@android:color/holo_blue_light</color>
+    <color name="colorMainDecimalButton">@android:color/holo_blue_dark</color>
+    <color name="colorMainEqualsButton">@android:color/holo_green_dark</color>
+    <color name="colorMainOperatorButton">@android:color/holo_green_light</color>
+    <color name="colorMainClearButton">@android:color/holo_red_light</color>
+    <color name="colorMainInputText">@color/colorPrimary</color>
+    <color name="colorMainButtonText">@android:color/black</color>
+
+    <!-- Tip calculator colors -->
+    <color name="colorTipNumericButton">@android:color/holo_blue_light</color>
+    <color name="colorTipCancelButton">@android:color/holo_red_light</color>
+    <color name="colorTipAcceptButton">@android:color/holo_green_light</color>
+    <color name="colorTipInputText">@color/colorPrimary</color>
+    <color name="colorTipResetButton">@android:color/holo_orange_dark</color>
+    <color name="colorTipButtonText">@android:color/black</color>
+    <color name="colorTipTextView">#737373</color>
+
 </resources>
