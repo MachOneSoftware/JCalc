@@ -12,3 +12,5 @@ Update VersionMap to map new versionCode to new versionName
 
 Change "whats_new_text" in strings resources
 
+Update Google Play screenshots if needed
+
