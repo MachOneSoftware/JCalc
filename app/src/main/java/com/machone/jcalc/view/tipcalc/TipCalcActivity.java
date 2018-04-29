@@ -49,6 +49,11 @@ public class TipCalcActivity extends AppCompatActivity implements TipInputFragme
         resetDisplay();
     }
 
+    @Override
+    public void onDoneButtonPressed() {
+        finish();
+    }
+
     private void resetDisplay() {
         subtotalTextView.setText(getResources().getString(R.string.tip_default_output));
     }

@@ -34,7 +34,7 @@
         android:textColor="@color/colorTipOutputTextView"
         android:textSize="@dimen/tipCalcOutputLabels"
         android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/textview_center_helper"
+        app:layout_constraintEnd_toStartOf="@+id/space_textview"
         app:layout_constraintTop_toBottomOf="@+id/textview_suggestedtip_string" />
 
     <TextView
@@ -48,7 +48,7 @@
         android:textColor="@color/colorTipOutputTextView"
         android:textSize="@dimen/tipCalcOutputLabels"
         android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/textview_center_helper"
+        app:layout_constraintEnd_toStartOf="@+id/space_textview"
         app:layout_constraintTop_toBottomOf="@+id/textview_percent15_string" />
 
     <TextView
@@ -62,7 +62,7 @@
         android:textColor="@color/colorTipOutputEmphasisTextView"
         android:textSize="@dimen/tipCalcOutputLabels"
         android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/textview_center_helper"
+        app:layout_constraintEnd_toStartOf="@+id/space_textview"
         app:layout_constraintTop_toBottomOf="@+id/textview_percent175_string" />
 
     <TextView
@@ -76,7 +76,7 @@
         android:textColor="@color/colorTipOutputTextView"
         android:textSize="@dimen/tipCalcOutputLabels"
         android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/textview_center_helper"
+        app:layout_constraintEnd_toStartOf="@+id/space_textview"
         app:layout_constraintTop_toBottomOf="@+id/textview_percent20_string" />
 
     <TextView
@@ -90,7 +90,7 @@
         android:textSize="@dimen/tipCalcOutput"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/textview_center_helper"
+        app:layout_constraintStart_toEndOf="@+id/space_textview"
         app:layout_constraintTop_toBottomOf="@+id/textview_suggestedtip_string" />
 
     <TextView
@@ -104,7 +104,7 @@
         android:textSize="@dimen/tipCalcOutput"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/textview_center_helper"
+        app:layout_constraintStart_toEndOf="@+id/space_textview"
         app:layout_constraintTop_toBottomOf="@+id/textview_tip15_output" />
 
     <TextView
@@ -118,7 +118,7 @@
         android:textSize="@dimen/tipCalcOutput"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/textview_center_helper"
+        app:layout_constraintStart_toEndOf="@+id/space_textview"
         app:layout_constraintTop_toBottomOf="@+id/textview_tip175_output" />
 
     <TextView
@@ -132,7 +132,7 @@
         android:textSize="@dimen/tipCalcOutput"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/textview_center_helper"
+        app:layout_constraintStart_toEndOf="@+id/space_textview"
         app:layout_constraintTop_toBottomOf="@+id/textview_tip20_output" />
 
     <Button
@@ -140,32 +140,51 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/tipCalcResetHeight"
         android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="@color/colorTipResetButton"
         android:fontFamily="casual"
         android:text="@string/reset"
         android:textColor="@color/colorTipButtonText"
-        android:textSize="18sp"
+        android:textSize="@dimen/tipCalcOutputButtons"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/space_button"
+        app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_percent25_string" />
 
-    <!-- TextView to center suggested tip amounts in ConstraintLayout -->
-    <TextView
-        android:id="@+id/textview_center_helper"
+    <Button
+        android:id="@+id/button_done"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/tipCalcResetHeight"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorTipDoneButton"
+        android:fontFamily="casual"
+        android:text="@string/done"
+        android:textSize="@dimen/tipCalcOutputButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toEndOf="@+id/space_button"
+        app:layout_constraintTop_toBottomOf="@+id/textview_percent25_string" />
+
+    <Space
+        android:id="@+id/space_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/button_reset"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Space
+        android:id="@+id/space_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_suggestedtip_string" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

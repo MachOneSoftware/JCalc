@@ -2,7 +2,6 @@ package com.machone.jcalc.view.tipcalc;
 
 import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -29,7 +28,7 @@ public class TipOutputFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_tip_output, container, false);
-        registerClickListener(view);
+        registerClickListeners(view);
         return view;
     }
 
@@ -52,12 +51,19 @@ public class TipOutputFragment extends Fragment {
 
     public interface OnTipOutputListener {
         void onResetButtonPressed();
+        void onDoneButtonPressed();
     }
 
-    private void registerClickListener(View view) {
+    private void registerClickListeners(View view) {
         view.findViewById(R.id.button_reset).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 listener.onResetButtonPressed();
+            }
+        });
+
+        view.findViewById(R.id.button_done).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                listener.onDoneButtonPressed();
             }
         });
     }
