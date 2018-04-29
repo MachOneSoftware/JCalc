@@ -20,6 +20,8 @@
     <color name="colorTipInputText">@color/colorPrimary</color>
     <color name="colorTipResetButton">@android:color/holo_orange_dark</color>
     <color name="colorTipButtonText">@android:color/black</color>
-    <color name="colorTipTextView">#737373</color>
+    <color name="colorTipLabelTextView">#737373</color>
+    <color name="colorTipOutputTextView">@android:color/holo_blue_light</color>
+    <color name="colorTipOutputEmphasisTextView">@android:color/holo_green_light</color>
 
 </resources>
