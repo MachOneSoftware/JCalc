@@ -1,4 +1,4 @@
-package com.machone.jcalc;
+package com.machone.jcalc.helper;
 
 import android.util.Log;
 
@@ -11,7 +11,7 @@ public enum Theme {
                 return 0;
             default:
                 Log.w("Theme.getId", "Theme has no associated ID: " + this.name());
-                return -1;
+                return 0;
         }
     }
 

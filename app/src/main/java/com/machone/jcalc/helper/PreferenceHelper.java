@@ -1,4 +1,4 @@
-package com.machone.jcalc;
+package com.machone.jcalc.helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -1,5 +1,8 @@
 package com.machone.jcalc;
 
+import com.machone.jcalc.helper.Calculator;
+import com.machone.jcalc.helper.Operators;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;

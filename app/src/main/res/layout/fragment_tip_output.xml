@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.tipcalc.TipOutputFragment">
+
+    <TextView
+        android:id="@+id/textview_suggestedtip_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/suggested_tips"
+        android:textColor="@color/colorTipTextView"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_subtotal_input" />
+
+    <TextView
+        android:id="@+id/textview_percent15_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/percent15"
+        android:textColor="@color/colorTipTextView"
+        android:textSize="30sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_suggestedtip_string" />
+
+    <TextView
+        android:id="@+id/textview_percent175_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/percent175"
+        android:textColor="@color/colorTipTextView"
+        android:textSize="30sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_percent15_string" />
+
+    <TextView
+        android:id="@+id/textview_percent20_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/percent20"
+        android:textColor="@color/colorTipTextView"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_percent175_string" />
+
+    <TextView
+        android:id="@+id/textview_percent25_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/percent25"
+        android:textColor="@color/colorTipTextView"
+        android:textSize="30sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_percent20_string" />
+
+    <TextView
+        android:id="@+id/textview_tip15_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorTipTextView"
+        android:textSize="36sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_suggestedtip_string" />
+
+    <TextView
+        android:id="@+id/textview_tip175_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorTipTextView"
+        android:textSize="36sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_tip15_output" />
+
+    <TextView
+        android:id="@+id/textview_tip20_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorTipTextView"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_tip175_output" />
+
+    <TextView
+        android:id="@+id/textview_tip25_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorTipTextView"
+        android:textSize="36sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/textview_center_helper"
+        app:layout_constraintTop_toBottomOf="@+id/textview_tip20_output" />
+
+    <Button
+        android:id="@+id/button_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/tipCalcResetHeight"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorTipResetButton"
+        android:fontFamily="casual"
+        android:text="@string/reset"
+        android:textColor="@color/colorTipButtonText"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_percent25_string" />
+
+    <!-- TextView to center suggested tip amounts in ConstraintLayout -->
+    <TextView
+        android:id="@+id/textview_center_helper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/button_reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_suggestedtip_string" />
+
+</android.support.constraint.ConstraintLayout>

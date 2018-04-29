@@ -1,4 +1,4 @@
-package com.machone.jcalc;
+package com.machone.jcalc.helper;
 
 /**
  * Maps a versionCode to a versionName.
