@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -78,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showWhatsNew(){
         SharedPreferences prefs = getSharedPreferences("jcalc", Context.MODE_PRIVATE);
+
         int current = 0;
         int saved = prefs.getInt("version_number", 0);
         try{
