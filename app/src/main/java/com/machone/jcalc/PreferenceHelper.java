@@ -54,16 +54,17 @@ public class PreferenceHelper {
 
     //== Setters ===========================
 
-    public void setVersionCode(Context context){
-        int current = -1;
+    public int saveCurrentVersionCode(Context context){
+        int version = -1;
         try{
             PackageInfo p = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            current = p.versionCode;
+            version = p.versionCode;
         }catch (Exception ex){
             Log.w("setVersionCode", "Error retrieving version code.", ex);
         }
 
-        sharedPreferences.edit().putInt(VERSION_CODE, current).apply();
+        sharedPreferences.edit().putInt(VERSION_CODE, version).apply();
+        return version;
     }
 
     public void setTheme(Theme theme){

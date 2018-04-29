@@ -1,11 +1,8 @@
 package com.machone.jcalc;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -76,14 +73,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showWhatsNew(){
-        SharedPreferences prefs = getSharedPreferences("jcalc", Context.MODE_PRIVATE);
 
-        int current = 0;
-        int saved = prefs.getInt("version_number", 0);
-        try{
-            PackageInfo p = getPackageManager().getPackageInfo(getPackageName(), 0);
-            current = p.versionCode;
-        }catch (Exception ex){}
+        PreferenceHelper preferences = PreferenceHelper.getInstance(this);
+        int saved = preferences.getSavedVersionCode();
+        int current = preferences.saveCurrentVersionCode(this);
 
         if (current > saved){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -93,10 +86,6 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {}});
             builder.create().show();
-
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt("version_number", current);
-            editor.commit();
         }
     }
 
