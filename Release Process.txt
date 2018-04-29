@@ -1,0 +1,12 @@
+**JCALC RELEASE PROCESS**
+
+Increment versionCode in app.gradle
+
+Update versionName in app.gradle
+  MAJOR.MINOR.PATCH
+    PATCH: bug fixes, backend (non-UX) improvements
+    MINOR: general feature additions or improvements
+    MAJOR: major feature addition, many general feature additions, redesign, etc.
+
+Update VersionMap to map new versionCode to new versionName
+
