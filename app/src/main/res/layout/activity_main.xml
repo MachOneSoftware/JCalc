@@ -31,7 +31,7 @@
                 android:fontFamily="casual"
                 android:text="7"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/eight"
@@ -44,7 +44,7 @@
                 android:fontFamily="casual"
                 android:text="8"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/nine"
@@ -57,7 +57,7 @@
                 android:fontFamily="casual"
                 android:text="9"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/clearBtn"
@@ -70,7 +70,7 @@
                 android:fontFamily="casual"
                 android:text="C"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/clearEntryBtn"
@@ -83,7 +83,7 @@
                 android:fontFamily="casual"
                 android:text="CE"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
         </LinearLayout>
 
         <LinearLayout
@@ -102,7 +102,7 @@
                 android:fontFamily="casual"
                 android:text="4"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/five"
@@ -115,7 +115,7 @@
                 android:fontFamily="casual"
                 android:text="5"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/six"
@@ -128,7 +128,7 @@
                 android:fontFamily="casual"
                 android:text="6"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/leftParenthBtn"
@@ -141,7 +141,7 @@
                 android:fontFamily="casual"
                 android:text="("
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/rightParenthBtn"
@@ -154,7 +154,7 @@
                 android:fontFamily="casual"
                 android:text=")"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
         </LinearLayout>
 
@@ -174,7 +174,7 @@
                 android:fontFamily="casual"
                 android:text="1"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/two"
@@ -187,7 +187,7 @@
                 android:fontFamily="casual"
                 android:text="2"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/three"
@@ -200,7 +200,7 @@
                 android:fontFamily="casual"
                 android:text="3"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/plusBtn"
@@ -213,7 +213,7 @@
                 android:fontFamily="casual"
                 android:text="+"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/minusBtn"
@@ -226,7 +226,7 @@
                 android:fontFamily="casual"
                 android:text="−"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
         </LinearLayout>
 
@@ -246,7 +246,7 @@
                 android:fontFamily="casual"
                 android:text="0"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/decimalBtn"
@@ -259,7 +259,7 @@
                 android:fontFamily="casual"
                 android:text="."
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/eqBtn"
@@ -272,7 +272,7 @@
                 android:fontFamily="casual"
                 android:text="="
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/multBtn"
@@ -285,7 +285,7 @@
                 android:fontFamily="casual"
                 android:text="×"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
             <Button
                 android:id="@+id/divBtn"
@@ -298,7 +298,7 @@
                 android:fontFamily="casual"
                 android:text="÷"
                 android:textColor="@color/colorMainButtonText"
-                android:textSize="30sp" />
+                android:textSize="@dimen/buttonText" />
 
         </LinearLayout>
     </LinearLayout>

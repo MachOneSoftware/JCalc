@@ -8,6 +8,8 @@
     <dimen name="tipCalcResetHeight">60dp</dimen>
 
     <!-- Font Sizes -->
+    <dimen name="buttonText">30sp</dimen>
+
     <dimen name="tipCalcLabels">24sp</dimen>
     <dimen name="tipCalcOutputLabels">30sp</dimen>
     <dimen name="tipCalcOutput">36sp</dimen>
