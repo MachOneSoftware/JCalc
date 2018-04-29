@@ -16,6 +16,7 @@
     <string name="twitter">Twitter</string>
 
     <string name="reset">Reset</string>
+    <string name="done">Done</string>
     <string name="subtotal">Subtotal:</string>
     <string name="suggested_tips">Suggested Tip:</string>
     <string name="percent15">15%:</string>
@@ -31,5 +32,29 @@
         handy tip calculator. Open it up when you get your bill, and you\'ll quickly have a list
         of common gratuity values to reference. We\'ve also added an About page with contact
         and social media links. Enjoy!</string>
+
+    <!-- Calculator Buttons -->
+    <string name="button_0">0</string>
+    <string name="button_1">1</string>
+    <string name="button_2">2</string>
+    <string name="button_3">3</string>
+    <string name="button_4">4</string>
+    <string name="button_5">5</string>
+    <string name="button_6">6</string>
+    <string name="button_7">7</string>
+    <string name="button_8">8</string>
+    <string name="button_9">9</string>
+    <string name="button_clear">C</string>
+    <string name="button_clear_entry">CE</string>
+    <string name="button_parenthesis_left">(</string>
+    <string name="button_parenthesis_right">)</string>
+    <string name="button_plus">+</string>
+    <string name="button_minus">-</string>
+    <string name="button_multiply">×</string>
+    <string name="button_divide">÷</string>
+    <string name="button_equals">=</string>
+    <string name="button_decimal">.</string>
+    <string name="button_tip_reset">X</string>
+    <string name="button_tip_submit">✓</string>
 
 </resources>

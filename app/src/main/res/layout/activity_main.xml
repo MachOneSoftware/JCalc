@@ -29,7 +29,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainNumericButton"
                 android:fontFamily="casual"
-                android:text="7"
+                android:text="@string/button_7"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -42,7 +42,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainNumericButton"
                 android:fontFamily="casual"
-                android:text="8"
+                android:text="@string/button_8"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -55,7 +55,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainNumericButton"
                 android:fontFamily="casual"
-                android:text="9"
+                android:text="@string/button_9"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -68,7 +68,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainClearButton"
                 android:fontFamily="casual"
-                android:text="C"
+                android:text="@string/button_clear"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -81,7 +81,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainClearButton"
                 android:fontFamily="casual"
-                android:text="CE"
+                android:text="@string/button_clear_entry"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
         </LinearLayout>
@@ -100,7 +100,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainNumericButton"
                 android:fontFamily="casual"
-                android:text="4"
+                android:text="@string/button_4"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -113,7 +113,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainNumericButton"
                 android:fontFamily="casual"
-                android:text="5"
+                android:text="@string/button_5"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -126,7 +126,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainNumericButton"
                 android:fontFamily="casual"
-                android:text="6"
+                android:text="@string/button_6"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -139,7 +139,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainOperatorButton"
                 android:fontFamily="casual"
-                android:text="("
+                android:text="@string/button_parenthesis_left"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -152,7 +152,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainOperatorButton"
                 android:fontFamily="casual"
-                android:text=")"
+                android:text="@string/button_parenthesis_right"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -172,7 +172,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainNumericButton"
                 android:fontFamily="casual"
-                android:text="1"
+                android:text="@string/button_1"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -185,7 +185,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainNumericButton"
                 android:fontFamily="casual"
-                android:text="2"
+                android:text="@string/button_2"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -198,7 +198,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainNumericButton"
                 android:fontFamily="casual"
-                android:text="3"
+                android:text="@string/button_3"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -211,7 +211,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainOperatorButton"
                 android:fontFamily="casual"
-                android:text="+"
+                android:text="@string/button_plus"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -224,7 +224,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainOperatorButton"
                 android:fontFamily="casual"
-                android:text="−"
+                android:text="@string/button_minus"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -244,7 +244,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainNumericButton"
                 android:fontFamily="casual"
-                android:text="0"
+                android:text="@string/button_0"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -257,7 +257,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainDecimalButton"
                 android:fontFamily="casual"
-                android:text="."
+                android:text="@string/button_decimal"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -270,7 +270,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainEqualsButton"
                 android:fontFamily="casual"
-                android:text="="
+                android:text="@string/button_equals"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -283,7 +283,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainOperatorButton"
                 android:fontFamily="casual"
-                android:text="×"
+                android:text="@string/button_multiply"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
@@ -296,7 +296,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorMainOperatorButton"
                 android:fontFamily="casual"
-                android:text="÷"
+                android:text="@string/button_divide"
                 android:textColor="@color/colorMainButtonText"
                 android:textSize="@dimen/buttonText" />
 
