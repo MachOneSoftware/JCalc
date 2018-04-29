@@ -10,3 +10,5 @@ Update versionName in app.gradle
 
 Update VersionMap to map new versionCode to new versionName
 
+Change "whats_new_text" in strings resources
+
