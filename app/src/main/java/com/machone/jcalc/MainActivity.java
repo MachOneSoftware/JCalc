@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
                     expression += buttonText;
                 }
 
-                if (expression.length() > 8)
+                if (expression.length() > 8 && !expressionIsEquals)
                     expression += "  ";
 
                 ((TextView) findViewById(R.id.input)).setText(expression);
