@@ -1,19 +1,9 @@
 <resources>
     <string name="app_name">JCalc</string>
-    <string name="title_activity_about">AboutActivity</string>
     <string name="title_activity_tip_calc">TipCalcActivity</string>
 
     <string name="TipCalculator">Tip Calculator</string>
     <string name="About">About</string>
-    <string name="Calculator">Calculator</string>
-
-    <string name="about_description">Mach One Software is an independent project by Jordan Judt.</string>
-    <string name="about_mission">I strive to create high quality, easy-to-use software for all to enjoy.</string>
-    <string name="about_contact">If you\'d like to request a feature or give feedback, send an email:</string>
-    <string name="about_email">apps@jordanjudt.com</string>
-    <string name="review">Review on Google Play</string>
-    <string name="facebook">Facebook</string>
-    <string name="twitter">Twitter</string>
 
     <string name="reset">Reset</string>
     <string name="done">Done</string>
@@ -56,5 +46,33 @@
     <string name="button_decimal">.</string>
     <string name="button_tip_reset">X</string>
     <string name="button_tip_submit">✓</string>
+
+    <!-- About -->
+    <string name="title_activity_about">AboutActivity</string>
+
+    <string name="about_jcalc">About JCalc</string>
+    <string name="about_jcalc_version">Version %s</string>
+    <string name="about_simple_calculator">JCalc is a simple calculator app.</string>
+    <string name="about_jcalc_description">It started as a class assignment for my Software Engineering
+        course. I decided I wanted to take it one step further and list it on Google Play.
+        JCalc became my first published app!</string>
+    <string name="about_jcalc_description_extra">JCalc now features a tip calculator to assist in
+        calculating your restaurant bill. Plus, I\'m planning several additional features and improvements!</string>
+
+    <string name="about_machone_description">Mach One Software is an independent project by Jordan Judt.</string>
+    <string name="about_machone_mission">I strive to create high quality, easy-to-use software for all to enjoy.</string>
+    <string name="about_contact">If you\'d like to request a feature or give feedback, tap one of the options below.</string>
+    <string name="review_on_google">Google Play</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="email">Email</string>
+
+    <!-- Image Content Descriptions -->
+    <string name="jcalc_icon">JCalc icon</string>
+    <string name="mach_one_software_logo">Mach One Software logo</string>
+    <string name="google_play_icon">Google Play icon</string>
+    <string name="facebook_icon">Facebook icon</string>
+    <string name="twitter_icon">Twitter icon</string>
+    <string name="email_icon">Email icon</string>
 
 </resources>

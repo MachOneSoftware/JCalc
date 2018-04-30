@@ -4,11 +4,11 @@ package com.machone.jcalc.helper;
  * Maps a versionCode to a versionName.
  */
 public class VersionMap {
-    public final String verCode_6 = "1.0.0";
-    public final String verCode_8 = "1.2.0";
-    public final String verCode_9 = "1.2.1";
+    public static final String verCode_6 = "1.0.0";
+    public static final String verCode_8 = "1.2.0";
+    public static final String verCode_9 = "1.2.1";
 
-    public String getVersionName(int versionCode) {
+    public static String getVersionName(int versionCode) {
         switch (versionCode){
             case 6:
                 return verCode_6;
