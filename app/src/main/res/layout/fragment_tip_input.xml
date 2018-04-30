@@ -75,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toEndOf="@+id/eight"
-        app:layout_constraintTop_toBottomOf="@+id/textview_subtotal_input" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/eight"
@@ -92,7 +92,7 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_subtotal_input" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/seven"
@@ -110,7 +110,7 @@
         app:layout_constraintEnd_toStartOf="@+id/eight"
         app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_subtotal_input" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/six"
