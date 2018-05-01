@@ -2,6 +2,7 @@ package com.machone.jcalc.view;
 
 import android.content.Intent;
 import android.content.pm.PackageInfo;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.machone.jcalc.R;
@@ -39,7 +41,28 @@ public class AboutActivity extends AppCompatActivity {
                         version
                 ));
 
+        setImageWidths();
         setImageLinks();
+    }
+
+    private void setImageWidths(){
+        final int SOCIAL_BUTTON_COUNT = 4;
+
+        // Get usable screen width
+        Rect displayRect = new Rect();
+        getWindow().getDecorView().getWindowVisibleDisplayFrame(displayRect);
+        int buttonWidth = displayRect.width() / SOCIAL_BUTTON_COUNT;
+
+        // Get and set LayoutParams
+        TextView googlePlay = findViewById(R.id.text_review);
+        ViewGroup.LayoutParams params = googlePlay.getLayoutParams();
+        params.width = buttonWidth;
+
+        // Set LayoutParams for each button
+        googlePlay.setLayoutParams(params);
+        findViewById(R.id.text_facebook).setLayoutParams(params);
+        findViewById(R.id.text_twitter).setLayoutParams(params);
+        findViewById(R.id.text_email).setLayoutParams(params);
     }
 
     private void setImageLinks() {
