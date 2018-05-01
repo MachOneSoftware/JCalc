@@ -21,7 +21,6 @@ import com.machone.jcalc.helper.PreferenceHelper;
 import com.machone.jcalc.view.tipcalc.TipCalcActivity;
 
 public class MainActivity extends AppCompatActivity {
-//    private String expression = "";
     private String currentOperand = "";
     private char lastChar = '\0';
     private boolean expressionIsEquals = false;
@@ -38,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
         // Disable soft keyboard
         if (Build.VERSION.SDK_INT >= 21)
             input.setShowSoftInputOnFocus(false);
-//        else
-//            input.setRawInputType(InputType.TYPE_NULL);
 
         registerClickListeners();
         showWhatsNew();
@@ -223,11 +220,8 @@ public class MainActivity extends AppCompatActivity {
                     input.setText(input.getText() + buttonText);
                 }
 
-//                input.setText(expression);
+                // Set EditText cursor to end of input
                 input.setSelection(input.length());
-
-                //((TextView) findViewById(R.id.input)).setText(expression);
-                //((HorizontalScrollView) findViewById(R.id.horizontalScrollView)).fullScroll(HorizontalScrollView.FOCUS_RIGHT);
             }
         };
 
@@ -257,7 +251,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clear() {
-//        expression = "";
         input.setText("");
         lastChar = '\0';
         currentOperand = "";
