@@ -42,9 +42,13 @@ public class PreferenceHelper {
     //== Getters ===========================
 
     public int getSavedVersionCode(){
-        // Remove "version_number" key in favor of using a better name.
-        // "version_number" was only used with one version (8/1.2.0).
-        sharedPreferences.edit().remove(VERSION_NUMBER).apply();
+        int number = sharedPreferences.getInt(VERSION_NUMBER, VERSION_CODE_DEFAULT);
+        if (number != 0){
+            // Remove "version_number" key in favor of using a better name.
+            // "version_number" was only used with one version (8/1.2.0).
+            sharedPreferences.edit().remove(VERSION_NUMBER).apply();
+            return number;
+        }
         return sharedPreferences.getInt(VERSION_CODE, VERSION_CODE_DEFAULT);
     }
 

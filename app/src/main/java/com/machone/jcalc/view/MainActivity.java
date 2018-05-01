@@ -18,7 +18,10 @@ import com.machone.jcalc.R;
 import com.machone.jcalc.helper.Calculator;
 import com.machone.jcalc.helper.Operators;
 import com.machone.jcalc.helper.PreferenceHelper;
+import com.machone.jcalc.helper.VersionMap;
 import com.machone.jcalc.view.tipcalc.TipCalcActivity;
+
+import junit.runner.Version;
 
 public class MainActivity extends AppCompatActivity {
     private String currentOperand = "";
@@ -75,8 +78,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (current > saved) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(R.string.whats_new)
-                    .setMessage(R.string.whats_new_text)
+            builder.setTitle(saved==0 ? R.string.whats_new_title_first_install : R.string.whats_new_title_update)
+                    .setMessage(getResources().getString(
+                            R.string.whats_new_text,
+                                VersionMap.getVersionName(current),
+                                getResources().getString(
+                                        saved==0 ? R.string.whats_new_first_install : R.string.whats_new_update)))
                     .setNeutralButton(R.string.dismiss, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {

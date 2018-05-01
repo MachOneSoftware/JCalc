@@ -17,11 +17,15 @@
     <string name="tip_output">$%s</string>
 
     <string name="dismiss">Dismiss</string>
-    <string name="whats_new">What\'s New</string>
-    <string name="whats_new_text">JCalc 1.2.0\n\nThanks for updating JCalc! In this release, we\'ve added a
-        handy tip calculator. Open it up when you get your bill, and you\'ll quickly have a list
-        of common gratuity values to reference. We\'ve also added an About page with contact
-        and social media links. Enjoy!</string>
+    <string name="whats_new_title_update">What\'s New</string>
+    <string name="whats_new_title_first_install">Welcome to JCalc!</string>
+    <string name="whats_new_text">JCalc %s\n\n%s</string>
+
+    <string name="whats_new_update">Thanks for updating JCalc! This release includes several bug fixes.
+        Additionally, the tip calculator is a little more pretty, and the about page has been updated. Enjoy!</string>
+    <string name="whats_new_first_install">I hope you enjoy the fun interface of a
+        simple calculator. Be sure to check out the tip calculator when you go out to eat. I would
+        appreciate hearing any feedback you have! Visit the about page for contact options. Enjoy!</string>
 
     <!-- Calculator Buttons -->
     <string name="button_0">0</string>
