@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.machone.jcalc.R;
 
 public class AboutActivity extends AppCompatActivity {
-    static{
+    static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 
@@ -45,7 +45,7 @@ public class AboutActivity extends AppCompatActivity {
         setImageLinks();
     }
 
-    private void setImageWidths(){
+    private void setImageWidths() {
         final int SOCIAL_BUTTON_COUNT = 4;
 
         // Get usable screen width
