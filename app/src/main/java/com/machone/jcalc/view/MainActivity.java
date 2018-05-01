@@ -3,6 +3,7 @@ package com.machone.jcalc.view;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -10,8 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.HorizontalScrollView;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.machone.jcalc.R;
@@ -21,15 +21,25 @@ import com.machone.jcalc.helper.PreferenceHelper;
 import com.machone.jcalc.view.tipcalc.TipCalcActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private String expression = "";
+//    private String expression = "";
     private String currentOperand = "";
     private char lastChar = '\0';
     private boolean expressionIsEquals = false;
+
+    private EditText input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        input = findViewById(R.id.input);
+
+        // Disable soft keyboard
+        if (Build.VERSION.SDK_INT >= 21)
+            input.setShowSoftInputOnFocus(false);
+//        else
+//            input.setRawInputType(InputType.TYPE_NULL);
 
         registerClickListeners();
         showWhatsNew();
@@ -62,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showWhatsNew() {
-
         PreferenceHelper preferences = PreferenceHelper.getInstance(this);
         int saved = preferences.getSavedVersionCode();
         int current = preferences.saveCurrentVersionCode(this);
@@ -84,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener buttonListener = new View.OnClickListener() {
             public void onClick(View v) {
                 String buttonText = ((Button) v).getText().toString();
-                expression = expression.trim();
 
                 if (expressionIsEquals && buttonText.matches("[^0-9.()]+")) {
                     if (currentOperand.equals("UNDEF") && !buttonText.equals("C") && !buttonText.equals("CE"))
@@ -97,12 +105,13 @@ public class MainActivity extends AppCompatActivity {
                     if (expressionIsEquals) clear();
                     if (currentOperand.equals("0") && !buttonText.equals(".")) {
                         currentOperand = "";
-                        expression = expression.substring(0, expression.length() - 1);
+                        String currIn = input.getText().toString();
+                        input.setText(currIn.substring(0, currIn.length() - 1));
                     }
                     if (buttonText.equals(".")) {
                         if (currentOperand.isEmpty() || currentOperand.equals(String.valueOf(Operators.NEGATIVE))) {
                             currentOperand += "0";
-                            expression += "0";
+                            input.setText(input.getText() + "0");
                         } else if (currentOperand.contains(".")) return;
                     }
                     currentOperand += buttonText;
@@ -114,8 +123,10 @@ public class MainActivity extends AppCompatActivity {
                     if (lastChar == '\0' || currentOperand.equals(String.valueOf(Operators.NEGATIVE)) || lastChar == '(')
                         return; // Must enter a number first
                     // Last character is already an operator, negative, or decimal
-                    if ((lastChar < '0' || lastChar > '9') && lastChar != ')')
-                        expression = expression.substring(0, expression.length() - 1);
+                    if ((lastChar < '0' || lastChar > '9') && lastChar != ')') {
+                        String currIn = input.getText().toString();
+                        input.setText(currIn.substring(0, currIn.length() - 1));
+                    }
 
                     currentOperand = "";
                 }
@@ -127,8 +138,10 @@ public class MainActivity extends AppCompatActivity {
                         currentOperand += buttonText;
                     } else { // minus intent
                         if (currentOperand.equals(String.valueOf(Operators.NEGATIVE))) return;
-                        if (lastChar == '.')
-                            expression = expression.substring(0, expression.length() - 1);
+                        if (lastChar == '.') {
+                            String currIn = input.getText().toString();
+                            input.setText(currIn.substring(0, currIn.length() - 1));
+                        }
                         buttonText = String.valueOf(Operators.MINUS);
                         currentOperand = "";
                     }
@@ -136,8 +149,10 @@ public class MainActivity extends AppCompatActivity {
                 // Handle left parenthesis
                 else if (buttonText.equals("(")) {
                     if (expressionIsEquals) clear();
-                    if (lastChar == '.')
-                        expression = expression.substring(0, expression.length() - 1);
+                    if (lastChar == '.') {
+                        String currIn = input.getText().toString();
+                        input.setText(currIn.substring(0, currIn.length() - 1));
+                    }
                     currentOperand = "";
                 }
                 // Handle right parenthesis
@@ -147,8 +162,10 @@ public class MainActivity extends AppCompatActivity {
                             expressionIsEquals)
                         return;
 
-                    if (lastChar == '.')
-                        expression = expression.substring(0, expression.length() - 1);
+                    if (lastChar == '.') {
+                        String currIn = input.getText().toString();
+                        input.setText(currIn.substring(0, currIn.length() - 1));
+                    }
                     currentOperand = "";
                 }
                 // Handle clear all
@@ -157,20 +174,23 @@ public class MainActivity extends AppCompatActivity {
                     // Handle clear entry
                 else if (buttonText.equals("CE")) {
                     if (currentOperand.isEmpty()) return;
-                    expression = expression.substring(0, expression.lastIndexOf(currentOperand));
+                    String currIn = input.getText().toString();
+                    input.setText(currIn.substring(0, currIn.lastIndexOf(currentOperand)));
                     currentOperand = "";
                     try {
-                        lastChar = expression.charAt(expression.length() - 1);
+                        currIn = input.getText().toString();
+                        lastChar = currIn.charAt(currIn.length() - 1);
                     } catch (Exception ex) {
                         lastChar = '\0';
                     }
                 }
                 // Handle equals
                 else if (buttonText.equals("=")) {
-                    if (!expression.equals(currentOperand)) {
+                    String currIn = input.getText().toString();
+                    if (!currIn.equals(currentOperand)) {
                         // Count parentheses
                         int left = 0, right = 0;
-                        for (char c : expression.toCharArray()) {
+                        for (char c : currIn.toCharArray()) {
                             if (c == '(') left++;
                             else if (c == ')') right++;
                         }
@@ -183,30 +203,31 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         try {
-                            expression = Calculator.evaluateExpression(expression);
-                            lastChar = expression.charAt(expression.length() - 1);
+                            input.setText(Calculator.evaluateExpression(currIn));
+                            currIn = input.getText().toString();
+                            lastChar = currIn.charAt(currIn.length() - 1);
                         } catch (ArithmeticException ex) {
-                            expression = "UNDEF";
+                            input.setText("UNDEF");
                             lastChar = '\0';
                             Toast.makeText(MainActivity.this, "Cannot divide by 0", Toast.LENGTH_SHORT).show();
                         }
                     } else if (currentOperand.equals("-0"))
-                        expression = "0";
+                        input.setText("0");
 
-                    currentOperand = expression;
+                    currentOperand = input.getText().toString();
                     expressionIsEquals = true;
                 }
 
                 if (!buttonText.equals("=") && !buttonText.equals("C") && !buttonText.equals("CE")) {
                     lastChar = buttonText.charAt(0);
-                    expression += buttonText;
+                    input.setText(input.getText() + buttonText);
                 }
 
-                if (expression.length() > 8 && !expressionIsEquals)
-                    expression += "  ";
+//                input.setText(expression);
+                input.setSelection(input.length());
 
-                ((TextView) findViewById(R.id.input)).setText(expression);
-                ((HorizontalScrollView) findViewById(R.id.horizontalScrollView)).fullScroll(HorizontalScrollView.FOCUS_RIGHT);
+                //((TextView) findViewById(R.id.input)).setText(expression);
+                //((HorizontalScrollView) findViewById(R.id.horizontalScrollView)).fullScroll(HorizontalScrollView.FOCUS_RIGHT);
             }
         };
 
@@ -236,7 +257,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clear() {
-        expression = "";
+//        expression = "";
+        input.setText("");
         lastChar = '\0';
         currentOperand = "";
         expressionIsEquals = false;

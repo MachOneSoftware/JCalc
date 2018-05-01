@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,9 @@ import android.widget.TextView;
 import com.machone.jcalc.R;
 
 public class AboutActivity extends AppCompatActivity {
+    static{
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

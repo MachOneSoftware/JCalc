@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="mainButtonHeight">95dp</dimen>
-    <dimen name="inputHeight">100dp</dimen>
+    <dimen name="mainInputHeight">100dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="tipCalcButtons">80dp</dimen>
     <dimen name="tipCalcResetWidth">80dp</dimen>
@@ -16,6 +16,8 @@
 
     <!-- Font Sizes -->
     <dimen name="buttonText">30sp</dimen>
+
+    <dimen name="fontsize_main_input">72sp</dimen>
 
     <dimen name="tipCalcLabels">24sp</dimen>
     <dimen name="tipCalcOutputLabels">30sp</dimen>
