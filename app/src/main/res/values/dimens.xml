@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="button">95dp</dimen>
-    <dimen name="inputHeight">100dp</dimen>
+    <dimen name="mainButtonHeight">95dp</dimen>
+    <dimen name="mainInputHeight">100dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="tipCalcButtons">80dp</dimen>
+    <dimen name="tipCalcResetWidth">80dp</dimen>
+    <dimen name="tipCalcResetHeight">60dp</dimen>
+
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="about_side_margins">16dp</dimen>
+    <dimen name="about_icon_height">100dp</dimen>
+
+    <dimen name="aboutSocialButtonWidth">80dp</dimen>
+
+    <!-- Font Sizes -->
+    <dimen name="buttonText">30sp</dimen>
+
+    <dimen name="fontsize_main_input">72sp</dimen>
+
+    <dimen name="tipCalcLabels">24sp</dimen>
+    <dimen name="tipCalcOutputLabels">30sp</dimen>
+    <dimen name="tipCalcOutput">36sp</dimen>
+    <dimen name="tipCalcOutputButtons">18sp</dimen>
+
+    <dimen name="fontsize_about_title">30sp</dimen>
+    <dimen name="fontsize_about_description">18sp</dimen>
+
 </resources>

@@ -1,155 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.machone.jcalc.AboutActivity"
+    tools:context="com.machone.jcalc.view.AboutActivity"
     tools:showIn="@layout/activity_about">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="334dp"
-        android:layout_height="177dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/machonesoftware_logo" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/suggestedTip"
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/about_description"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="334dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/about_mission"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/suggestedTip" />
+            <ImageView
+                android:id="@+id/image_jcalc"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/about_icon_height"
+                android:layout_marginBottom="@dimen/margin_16dp"
+                android:layout_marginLeft="@dimen/about_side_margins"
+                android:layout_marginRight="@dimen/about_side_margins"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/jcalc_icon"
+                app:srcCompat="@mipmap/ic_launcher" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="336dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/about_contact"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            <ImageView
+                android:id="@+id/image_machone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="@dimen/about_side_margins"
+                android:layout_marginRight="@dimen/about_side_margins"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:contentDescription="@string/mach_one_software_logo"
+                app:srcCompat="@drawable/machonesoftware_logo" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:autoLink="email"
-        android:text="@string/about_email"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        </LinearLayout>
 
-    <ImageView
-        android:id="@+id/image_googleplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/image_facebook"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:srcCompat="@drawable/ic_googleplay" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/image_facebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:srcCompat="@drawable/ic_facebook" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_8dp"
+                android:layout_marginLeft="@dimen/about_side_margins"
+                android:layout_marginStart="@dimen/about_side_margins"
+                android:layout_weight="1"
+                android:text="@string/about_jcalc"
+                android:textSize="@dimen/fontsize_about_title" />
 
-    <ImageView
-        android:id="@+id/image_twitter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/image_facebook"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:srcCompat="@drawable/ic_twitter" />
+            <TextView
+                android:id="@+id/textview_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_8dp"
+                android:layout_marginEnd="@dimen/about_side_margins"
+                android:layout_marginRight="@dimen/about_side_margins"
+                android:layout_weight="1"
+                android:text="@string/about_jcalc_version"
+                android:textSize="@dimen/fontsize_about_description" />
 
-    <TextView
-        android:id="@+id/text_review"
-        android:layout_width="101dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/review"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/text_facebook"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_googleplay" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/text_facebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/facebook"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_facebook" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/about_side_margins"
+            android:layout_marginLeft="@dimen/about_side_margins"
+            android:layout_marginRight="@dimen/about_side_margins"
+            android:layout_marginStart="@dimen/about_side_margins"
+            android:text="@string/about_simple_calculator"
+            android:textSize="@dimen/fontsize_about_description" />
 
-    <TextView
-        android:id="@+id/text_twitter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/twitter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_facebook"
-        app:layout_constraintTop_toBottomOf="@+id/image_twitter" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/about_side_margins"
+            android:layout_marginLeft="@dimen/about_side_margins"
+            android:layout_marginRight="@dimen/about_side_margins"
+            android:layout_marginStart="@dimen/about_side_margins"
+            android:text="@string/about_jcalc_description"
+            android:textSize="@dimen/fontsize_about_description" />
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/about_side_margins"
+            android:layout_marginLeft="@dimen/about_side_margins"
+            android:layout_marginRight="@dimen/about_side_margins"
+            android:layout_marginStart="@dimen/about_side_margins"
+            android:text="@string/about_jcalc_description_extra"
+            android:textSize="@dimen/fontsize_about_description" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/margin_16dp"
+            android:layout_marginLeft="@dimen/about_side_margins"
+            android:layout_marginRight="@dimen/about_side_margins"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:layout_marginRight="@dimen/margin_16dp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:text="@string/about_machone_description"
+            android:textSize="@dimen/fontsize_about_description" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:layout_marginRight="@dimen/margin_16dp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:text="@string/about_machone_mission"
+            android:textSize="@dimen/fontsize_about_description" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:layout_marginRight="@dimen/margin_16dp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:text="@string/about_contact"
+            android:textSize="@dimen/fontsize_about_description" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="25dp"
+            android:layout_marginLeft="@dimen/about_side_margins"
+            android:layout_marginRight="@dimen/about_side_margins"
+            android:gravity="center_vertical|center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_review"
+                android:layout_width="@dimen/aboutSocialButtonWidth"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_googleplay"
+                android:gravity="center"
+                android:text="@string/review_on_google"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/text_facebook"
+                android:layout_width="@dimen/aboutSocialButtonWidth"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_facebook"
+                android:gravity="center"
+                android:text="@string/facebook" />
+
+            <TextView
+                android:id="@+id/text_twitter"
+                android:layout_width="@dimen/aboutSocialButtonWidth"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_twitter"
+                android:gravity="center"
+                android:text="@string/twitter" />
+
+            <TextView
+                android:id="@+id/text_email"
+                android:layout_width="@dimen/aboutSocialButtonWidth"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_email_compat"
+                android:gravity="center"
+                android:text="@string/email" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
