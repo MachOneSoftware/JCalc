@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/mainInputHeight"
         android:layout_marginBottom="@dimen/margin_8dp"
+        android:cursorVisible="false"
         android:editable="false"
         android:ems="10"
         android:inputType="text"
@@ -21,6 +22,7 @@
         android:textIsSelectable="false" />
 
     <TableLayout
+        android:id="@+id/table_buttons"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
