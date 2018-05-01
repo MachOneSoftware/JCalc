@@ -3,15 +3,22 @@ package com.machone.jcalc.view;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableLayout;
 import android.widget.Toast;
 
 import com.machone.jcalc.R;
@@ -20,8 +27,6 @@ import com.machone.jcalc.helper.Operators;
 import com.machone.jcalc.helper.PreferenceHelper;
 import com.machone.jcalc.helper.VersionMap;
 import com.machone.jcalc.view.tipcalc.TipCalcActivity;
-
-import junit.runner.Version;
 
 public class MainActivity extends AppCompatActivity {
     private String currentOperand = "";
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         input = findViewById(R.id.input);
+
+        setButtonHeight();
 
         // Disable soft keyboard
         if (Build.VERSION.SDK_INT >= 21)
@@ -71,6 +78,54 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    private void setButtonHeight() {
+        // Get View heights to subtract from screen height
+        final int BUTTON_ROWS = ((TableLayout) findViewById(R.id.table_buttons)).getChildCount();
+        final int INPUT_HEIGHT = findViewById(R.id.input).getLayoutParams().height;
+        final int INPUT_MARGIN = ((ViewGroup.MarginLayoutParams) input.getLayoutParams()).bottomMargin;
+        // ActionBar height
+        int actionbarHeight = 0;
+        TypedValue typedValue = new TypedValue();
+        if (getTheme().resolveAttribute(R.attr.actionBarSize, typedValue, true)) {
+            actionbarHeight = TypedValue.complexToDimensionPixelSize(typedValue.data, getResources().getDisplayMetrics());
+        }
+
+        // Get usable screen height
+        Rect displayRect = new Rect();
+        getWindow().getDecorView().getWindowVisibleDisplayFrame(displayRect);
+
+        // Calculate usable space for buttons
+        int usable = displayRect.height() - actionbarHeight - INPUT_HEIGHT - INPUT_MARGIN;
+        int buttonHeight = usable / BUTTON_ROWS;
+
+        // Get and set LayoutParams
+        Button zero = findViewById(R.id.zero);
+        ViewGroup.LayoutParams params = zero.getLayoutParams();
+        params.height = buttonHeight;
+
+        // Set LayoutParams for each button
+        zero.setLayoutParams(params);
+        findViewById(R.id.one).setLayoutParams(params);
+        findViewById(R.id.two).setLayoutParams(params);
+        findViewById(R.id.three).setLayoutParams(params);
+        findViewById(R.id.four).setLayoutParams(params);
+        findViewById(R.id.five).setLayoutParams(params);
+        findViewById(R.id.six).setLayoutParams(params);
+        findViewById(R.id.seven).setLayoutParams(params);
+        findViewById(R.id.eight).setLayoutParams(params);
+        findViewById(R.id.nine).setLayoutParams(params);
+        findViewById(R.id.decimalBtn).setLayoutParams(params);
+        findViewById(R.id.plusBtn).setLayoutParams(params);
+        findViewById(R.id.minusBtn).setLayoutParams(params);
+        findViewById(R.id.multBtn).setLayoutParams(params);
+        findViewById(R.id.divBtn).setLayoutParams(params);
+        findViewById(R.id.eqBtn).setLayoutParams(params);
+        findViewById(R.id.leftParenthBtn).setLayoutParams(params);
+        findViewById(R.id.rightParenthBtn).setLayoutParams(params);
+        findViewById(R.id.clearBtn).setLayoutParams(params);
+        findViewById(R.id.clearEntryBtn).setLayoutParams(params);
+    }
+
     private void showWhatsNew() {
         PreferenceHelper preferences = PreferenceHelper.getInstance(this);
         int saved = preferences.getSavedVersionCode();
@@ -78,12 +133,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (current > saved) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(saved==0 ? R.string.whats_new_title_first_install : R.string.whats_new_title_update)
+            builder.setTitle(saved == 0 ? R.string.whats_new_title_first_install : R.string.whats_new_title_update)
                     .setMessage(getResources().getString(
                             R.string.whats_new_text,
-                                VersionMap.getVersionName(current),
-                                getResources().getString(
-                                        saved==0 ? R.string.whats_new_first_install : R.string.whats_new_update)))
+                            VersionMap.getVersionName(current),
+                            getResources().getString(
+                                    saved == 0 ? R.string.whats_new_first_install : R.string.whats_new_update)))
                     .setNeutralButton(R.string.dismiss, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
