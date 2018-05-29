@@ -3,14 +3,12 @@ package com.machone.jcalc.view;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,9 +16,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.machone.jcalc.BuildConfig;
 import com.machone.jcalc.R;
 import com.machone.jcalc.helper.Calculator;
 import com.machone.jcalc.helper.Operators;
@@ -29,6 +33,8 @@ import com.machone.jcalc.helper.VersionMap;
 import com.machone.jcalc.view.tipcalc.TipCalcActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private final String TAG = "MainActivity";
+
     private String currentOperand = "";
     private char lastChar = '\0';
     private boolean expressionIsEquals = false;
@@ -41,13 +47,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         input = findViewById(R.id.input);
-
-        setButtonHeight();
-
         // Disable soft keyboard
         if (Build.VERSION.SDK_INT >= 21)
             input.setShowSoftInputOnFocus(false);
 
+        initializeBannerAd();
+        setButtonHeight();
         registerClickListeners();
         showWhatsNew();
     }
@@ -78,24 +83,59 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    private void initializeBannerAd(){
+        MobileAds.initialize(this, getString(R.string.admob_app_id));
+
+        AdView banner = new AdView(this);
+        banner.setAdSize(AdSize.SMART_BANNER);
+        banner.setAdUnitId(getString(BuildConfig.DEBUG ? R.string.admob_test_unit_id : R.string.admob_main_activity_unit_id));
+
+        LinearLayout layout = findViewById(R.id.linearlayout);
+        layout.addView(banner);
+        banner.loadAd(new AdRequest.Builder().build());
+    }
+
     private void setButtonHeight() {
         // Get View heights to subtract from screen height
         final int BUTTON_ROWS = ((TableLayout) findViewById(R.id.table_buttons)).getChildCount();
-        final int INPUT_HEIGHT = findViewById(R.id.input).getLayoutParams().height;
+        final int INPUT_HEIGHT = getResources().getDimensionPixelOffset(R.dimen.mainInputHeight);
         final int INPUT_MARGIN = ((ViewGroup.MarginLayoutParams) input.getLayoutParams()).bottomMargin;
+        final int BANNER_AD_HEIGHT = getResources().getDimensionPixelOffset(R.dimen.banner_ad_height);
+
         // ActionBar height
         int actionbarHeight = 0;
         TypedValue typedValue = new TypedValue();
-        if (getTheme().resolveAttribute(R.attr.actionBarSize, typedValue, true)) {
+        if (getTheme().resolveAttribute(R.attr.actionBarSize, typedValue, true))
             actionbarHeight = TypedValue.complexToDimensionPixelSize(typedValue.data, getResources().getDisplayMetrics());
+
+        // Soft key height
+        // getRealMetrics is only available with API 17+
+        int softKeyHeight = 0;
+        int usableHeight = 0;
+        int realHeight = 0;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            DisplayMetrics metrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(metrics);
+            usableHeight = metrics.heightPixels;
+            getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
+            realHeight = metrics.heightPixels;
+            if (realHeight > usableHeight)
+                softKeyHeight = realHeight - usableHeight;
+        } else{
+            // Get usable screen height
+            Rect displayRect = new Rect();
+            getWindow().getDecorView().getWindowVisibleDisplayFrame(displayRect);
+            usableHeight = displayRect.height();
         }
 
-        // Get usable screen height
-        Rect displayRect = new Rect();
-        getWindow().getDecorView().getWindowVisibleDisplayFrame(displayRect);
+        // Get status bar height to add
+        int statusBarHeight = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0)
+            statusBarHeight = getResources().getDimensionPixelSize(resourceId);
 
         // Calculate usable space for buttons
-        int usable = displayRect.height() - actionbarHeight - INPUT_HEIGHT - INPUT_MARGIN;
+        int usable = usableHeight - actionbarHeight - INPUT_HEIGHT - INPUT_MARGIN - BANNER_AD_HEIGHT - softKeyHeight + statusBarHeight;
         int buttonHeight = usable / BUTTON_ROWS;
 
         // Get and set LayoutParams
