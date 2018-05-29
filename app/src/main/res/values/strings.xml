@@ -21,8 +21,8 @@
     <string name="whats_new_title_first_install">Welcome to JCalc!</string>
     <string name="whats_new_text">JCalc %s\n\n%s</string>
 
-    <string name="whats_new_update">Thanks for updating JCalc! This release includes several bug fixes.
-        Additionally, the tip calculator is a little more pretty, and the about page has been updated. Enjoy!</string>
+    <string name="whats_new_update">Thanks for updating JCalc! This release introduces a non-intrusive
+        banner ad to the bottom of the calculator screens. Hey, a guy\'s gotta get paid! :) Enjoy!</string>
     <string name="whats_new_first_install">I hope you enjoy the fun interface of a
         simple calculator. Be sure to check out the tip calculator when you go out to eat. I would
         appreciate hearing any feedback you have! Visit the about page for contact options. Enjoy!</string>
