@@ -22,12 +22,12 @@ public class TipCalcActivity extends AppCompatActivity implements TipInputFragme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_calc);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        subtotalTextView = (TextView) findViewById(R.id.textview_subtotal_input);
-        viewPager = (NonSwipeableViewPager) findViewById(R.id.container);
+        subtotalTextView = findViewById(R.id.textview_subtotal_input);
+        viewPager = findViewById(R.id.container);
 
         setupViewPager(viewPager);
     }
