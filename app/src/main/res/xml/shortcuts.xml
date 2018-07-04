@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_attach_money_green_24dp"
+        android:shortcutId="tip_calc"
+        android:shortcutLongLabel="@string/shortcut_tipcalc_label_long"
+        android:shortcutShortLabel="@string/shortcut_tipcalc_label_short">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.machone.jcalc.view.MainActivity"
+            android:targetPackage="com.machone.jcalc" />
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.machone.jcalc.view.tipcalc.TipCalcActivity"
+            android:targetPackage="com.machone.jcalc" />
+    </shortcut>
+</shortcuts>

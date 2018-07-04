@@ -5,6 +5,10 @@
     <string name="TipCalculator">Tip Calculator</string>
     <string name="About">About</string>
 
+    <string name="shortcut_tipcalc_id">tip_calc</string>
+    <string name="shortcut_tipcalc_label_short">TipCalc</string>
+    <string name="shortcut_tipcalc_label_long">Tip Calculator</string>
+
     <string name="reset">Reset</string>
     <string name="done">Done</string>
     <string name="subtotal">Subtotal:</string>

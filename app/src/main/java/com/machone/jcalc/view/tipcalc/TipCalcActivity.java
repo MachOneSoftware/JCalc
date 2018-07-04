@@ -1,5 +1,6 @@
 package com.machone.jcalc.view.tipcalc;
 
+import android.content.pm.ShortcutManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -32,6 +33,9 @@ public class TipCalcActivity extends AppCompatActivity implements TipInputFragme
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= 25)
+            this.getSystemService(ShortcutManager.class).reportShortcutUsed(getString(R.string.shortcut_tipcalc_id));
+
         setContentView(R.layout.activity_tip_calc);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -74,7 +78,7 @@ public class TipCalcActivity extends AppCompatActivity implements TipInputFragme
         finish();
     }
 
-    private void initializeBannerAd(){
+    private void initializeBannerAd() {
         AdView banner = new AdView(this);
         if (Build.VERSION.SDK_INT >= 17) {
             banner.setId(View.generateViewId());
