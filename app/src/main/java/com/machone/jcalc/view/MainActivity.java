@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "onCreate");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.d(TAG, "onCreateOptionsMenu");
+
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
@@ -67,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d(TAG, "onOptionsItemSelected");
+
         Intent intent;
         switch (item.getItemId()) {
             case R.id.menuitem_tipcalc:
@@ -85,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeBannerAd(){
+        Log.d(TAG, "initializeBannerAd");
+
         MobileAds.initialize(this, getString(R.string.admob_app_id));
 
         AdView banner = new AdView(this);
@@ -97,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setButtonHeight() {
+        Log.d(TAG, "setButtonHeight");
+
         // Get View heights to subtract from screen height
         final int BUTTON_ROWS = ((TableLayout) findViewById(R.id.table_buttons)).getChildCount();
         final int INPUT_HEIGHT = getResources().getDimensionPixelOffset(R.dimen.mainInputHeight);
@@ -167,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showWhatsNew() {
+        Log.d(TAG, "showWhatsNew");
+
         PreferenceHelper preferences = PreferenceHelper.getInstance(this);
         int saved = preferences.getSavedVersionCode();
         int current = preferences.saveCurrentVersionCode(this);
@@ -189,6 +201,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void registerClickListeners() {
+        Log.d(TAG, "registerClickListeners");
+
         View.OnClickListener buttonListener = new View.OnClickListener() {
             public void onClick(View v) {
                 String buttonText = ((Button) v).getText().toString();
@@ -353,6 +367,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clear() {
+        Log.d(TAG, "clear");
+
         input.setText("");
         lastChar = '\0';
         currentOperand = "";
