@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -53,8 +54,13 @@ public class TipCalcActivity extends AppCompatActivity implements TipInputFragme
 
     @Override
     public void onSubmitButtonPressed() {
-        viewPager.setCurrentItem(TIP_OUTPUT_FRAGMENT);
-        ((TipOutputFragment) ((FragmentStatePagerAdapter) viewPager.getAdapter()).getItem(1)).setTipOutput(subtotalTextView.getText().toString());
+        String subtotalText = subtotalTextView.getText().toString();
+        if (subtotalText.equals(getString(R.string.tip_default_output)))
+            Toast.makeText(this, getString(R.string.tip_enter_value), Toast.LENGTH_SHORT).show();
+        else {
+            viewPager.setCurrentItem(TIP_OUTPUT_FRAGMENT);
+            ((TipOutputFragment) ((FragmentStatePagerAdapter) viewPager.getAdapter()).getItem(1)).setTipOutput(subtotalText);
+        }
     }
 
     @Override
