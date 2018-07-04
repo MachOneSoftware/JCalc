@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.machone.jcalc.view.tipcalc.TipCalcActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -21,6 +23,48 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_tip_calc" />
+    <TextView
+        android:id="@+id/textview_subtotal_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/subtotal"
+        android:textColor="@color/colorTipLabelTextView"
+        android:textSize="@dimen/tipCalcLabels"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
-</android.support.design.widget.CoordinatorLayout>
+    <TextView
+        android:id="@+id/textview_subtotal_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="casual"
+        android:text="@string/tip_default_output"
+        android:textAlignment="center"
+        android:textColor="@color/colorTipInputText"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_subtotal_string" />
+
+    <com.machone.jcalc.view.extension.NonSwipeableViewPager
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_subtotal_input">
+
+    </com.machone.jcalc.view.extension.NonSwipeableViewPager>
+
+</android.support.constraint.ConstraintLayout>

@@ -82,6 +82,7 @@
     <!-- Keys and IDs -->
     <string name="admob_app_id">ca-app-pub-1486657922060319~2940576112</string>
     <string name="admob_main_activity_unit_id">ca-app-pub-1486657922060319/5841646597</string>
+    <string name="admob_tipcalc_activity_unit_id">ca-app-pub-1486657922060319/6233201283</string>
     <string name="admob_test_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 
 </resources>
