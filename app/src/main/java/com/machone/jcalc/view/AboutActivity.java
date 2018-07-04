@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.machone.jcalc.R;
 
 public class AboutActivity extends AppCompatActivity {
+    // Support images with TextView on older Android
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }

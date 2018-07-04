@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
         // ActionBar height
         int actionbarHeight = 0;
+        int usableHeight;
         TypedValue typedValue = new TypedValue();
         if (getTheme().resolveAttribute(R.attr.actionBarSize, typedValue, true))
             actionbarHeight = TypedValue.complexToDimensionPixelSize(typedValue.data, getResources().getDisplayMetrics());
@@ -111,14 +113,12 @@ public class MainActivity extends AppCompatActivity {
         // Soft key height
         // getRealMetrics is only available with API 17+
         int softKeyHeight = 0;
-        int usableHeight = 0;
-        int realHeight = 0;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             DisplayMetrics metrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(metrics);
             usableHeight = metrics.heightPixels;
             getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
-            realHeight = metrics.heightPixels;
+            int realHeight = metrics.heightPixels;
             if (realHeight > usableHeight)
                 softKeyHeight = realHeight - usableHeight;
         } else{
