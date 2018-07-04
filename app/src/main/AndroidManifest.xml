@@ -55,7 +55,8 @@
             android:label="@string/title_activity_tip_calc"
             android:parentActivityName=".view.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.machone.jcalc.view.MainActivity" />

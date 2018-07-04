@@ -3,8 +3,6 @@
     android:id="@+id/linearlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <EditText
@@ -21,7 +19,9 @@
         android:minLines="1"
         android:scrollHorizontally="true"
         android:singleLine="true"
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
 
     <TableLayout
         android:id="@+id/table_buttons"

@@ -12,7 +12,8 @@
     <string name="percent15">15%:</string>
     <string name="percent175">17.5%:</string>
     <string name="percent20">20%:</string>
-    <string name="percent25">25%:</string>
+    <string name="tip_custom_percent_default">25</string>
+    <string name="percent">%:</string>
     <string name="tip_default_output">$0.00</string>
     <string name="tip_output">$%s</string>
     <string name="tip_enter_value">Enter a value before submitting</string>
