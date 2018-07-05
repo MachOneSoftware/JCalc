@@ -2,8 +2,8 @@ package com.machone.jcalc.view.tipcalc;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.github.florent37.viewtooltip.ViewTooltip;
 import com.machone.jcalc.R;
 import com.machone.jcalc.helper.Calculator;
 import com.machone.jcalc.helper.Operators;
@@ -59,6 +60,18 @@ public class TipOutputFragment extends Fragment {
         void onResetButtonPressed();
 
         void onDoneButtonPressed();
+    }
+
+    public void showCustomTipTooltip() {
+        ViewTooltip
+                .on(customPercentage)
+                .autoHide(true, 10000)
+                .clickToHide(true)
+                .position(ViewTooltip.Position.LEFT)
+                .text(getString(R.string.tooltip_new_feature_custom_percentage))
+                .color(Color.BLACK)
+                .textColor(Color.WHITE)
+                .show();
     }
 
     private void registerClickListeners(final View view) {

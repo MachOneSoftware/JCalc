@@ -9,6 +9,8 @@
     <string name="shortcut_tipcalc_label_short">TipCalc</string>
     <string name="shortcut_tipcalc_label_long">Tip Calculator</string>
 
+    <string name="tooltip_new_feature_custom_percentage">Now you can enter a custom percentage!</string>
+
     <string name="reset">Reset</string>
     <string name="done">Done</string>
     <string name="subtotal">Subtotal:</string>
