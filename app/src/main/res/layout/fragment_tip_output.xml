@@ -69,14 +69,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textview_percent175_string" />
 
     <TextView
-        android:id="@+id/textview_percent25_string"
+        android:id="@+id/textview_custom_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="casual"
-        android:text="@string/percent25"
+        android:text="@string/percent"
         android:textColor="@color/colorTipOutputTextView"
         android:textSize="@dimen/tipCalcOutputLabels"
         android:visibility="visible"
@@ -129,7 +129,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textview_tip175_output" />
 
     <TextView
-        android:id="@+id/textview_tip25_output"
+        android:id="@+id/textview_custom_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -160,7 +160,7 @@
         app:layout_constraintEnd_toStartOf="@+id/space_button"
         app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_percent25_string" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_custom_string" />
 
     <Button
         android:id="@+id/button_done"
@@ -178,7 +178,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toEndOf="@+id/space_button"
-        app:layout_constraintTop_toBottomOf="@+id/textview_percent25_string" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_custom_string" />
 
     <Space
         android:id="@+id/space_button"
@@ -194,5 +194,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/customPercentage"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:gravity="right"
+        android:imeOptions="actionDone"
+        android:inputType="numberDecimal"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:text="@string/tip_custom_percent_default"
+        android:textColor="@color/colorTipOutputTextView"
+        android:textSize="@dimen/tipCalcOutputLabels"
+        app:layout_constraintBottom_toTopOf="@+id/button_reset"
+        app:layout_constraintEnd_toStartOf="@+id/textview_custom_string"
+        app:layout_constraintTop_toBottomOf="@+id/textview_percent20_string" />
 
 </android.support.constraint.ConstraintLayout>

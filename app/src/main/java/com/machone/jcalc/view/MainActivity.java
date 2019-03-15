@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         initializeBannerAd();
         setButtonHeight();
         registerClickListeners();
+
         showWhatsNew();
     }
 
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    private void initializeBannerAd(){
+    private void initializeBannerAd() {
         Log.d(TAG, "initializeBannerAd");
 
         MobileAds.initialize(this, getString(R.string.admob_app_id));
@@ -131,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
             int realHeight = metrics.heightPixels;
             if (realHeight > usableHeight)
                 softKeyHeight = realHeight - usableHeight;
-        } else{
+        } else {
             // Get usable screen height
             Rect displayRect = new Rect();
             getWindow().getDecorView().getWindowVisibleDisplayFrame(displayRect);

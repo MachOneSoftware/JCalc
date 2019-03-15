@@ -5,6 +5,12 @@
     <string name="TipCalculator">Tip Calculator</string>
     <string name="About">About</string>
 
+    <string name="shortcut_tipcalc_id">tip_calc</string>
+    <string name="shortcut_tipcalc_label_short">TipCalc</string>
+    <string name="shortcut_tipcalc_label_long">Tip Calculator</string>
+
+    <string name="tooltip_new_feature_custom_percentage">Now you can enter a custom percentage!</string>
+
     <string name="reset">Reset</string>
     <string name="done">Done</string>
     <string name="subtotal">Subtotal:</string>
@@ -12,9 +18,11 @@
     <string name="percent15">15%:</string>
     <string name="percent175">17.5%:</string>
     <string name="percent20">20%:</string>
-    <string name="percent25">25%:</string>
+    <string name="tip_custom_percent_default">25</string>
+    <string name="percent">%:</string>
     <string name="tip_default_output">$0.00</string>
     <string name="tip_output">$%s</string>
+    <string name="tip_enter_value">Enter a value before submitting</string>
 
     <string name="dismiss">Dismiss</string>
     <string name="whats_new_title_update">What\'s New</string>

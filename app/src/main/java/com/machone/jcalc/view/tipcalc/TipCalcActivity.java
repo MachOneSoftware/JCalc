@@ -1,5 +1,7 @@
 package com.machone.jcalc.view.tipcalc;
 
+import android.content.SharedPreferences;
+import android.content.pm.ShortcutManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -11,12 +13,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.github.florent37.viewtooltip.ViewTooltip;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.machone.jcalc.BuildConfig;
 import com.machone.jcalc.R;
+import com.machone.jcalc.helper.PreferenceHelper;
 import com.machone.jcalc.view.extension.NonSwipeableViewPager;
 
 import java.util.Random;
@@ -31,6 +36,9 @@ public class TipCalcActivity extends AppCompatActivity implements TipInputFragme
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= 25)
+            this.getSystemService(ShortcutManager.class).reportShortcutUsed(getString(R.string.shortcut_tipcalc_id));
+
         setContentView(R.layout.activity_tip_calc);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,8 +61,20 @@ public class TipCalcActivity extends AppCompatActivity implements TipInputFragme
 
     @Override
     public void onSubmitButtonPressed() {
-        viewPager.setCurrentItem(TIP_OUTPUT_FRAGMENT);
-        ((TipOutputFragment) ((FragmentStatePagerAdapter) viewPager.getAdapter()).getItem(1)).setTipOutput(subtotalTextView.getText().toString());
+        String subtotalText = subtotalTextView.getText().toString();
+        if (subtotalText.equals(getString(R.string.tip_default_output)))
+            Toast.makeText(this, getString(R.string.tip_enter_value), Toast.LENGTH_SHORT).show();
+        else {
+            viewPager.setCurrentItem(TIP_OUTPUT_FRAGMENT);
+            TipOutputFragment fragment = ((TipOutputFragment)((FragmentStatePagerAdapter) viewPager.getAdapter()).getItem(TIP_OUTPUT_FRAGMENT));
+            fragment.setTipOutput(subtotalText);
+
+            PreferenceHelper preferenceHelper = PreferenceHelper.getInstance(this);
+            if (!preferenceHelper.getCustomTipTooltipShown()) {
+                fragment.showCustomTipTooltip();
+                preferenceHelper.setCustomTipTooltipShown();
+            }
+        }
     }
 
     @Override
@@ -68,7 +88,7 @@ public class TipCalcActivity extends AppCompatActivity implements TipInputFragme
         finish();
     }
 
-    private void initializeBannerAd(){
+    private void initializeBannerAd() {
         AdView banner = new AdView(this);
         if (Build.VERSION.SDK_INT >= 17) {
             banner.setId(View.generateViewId());

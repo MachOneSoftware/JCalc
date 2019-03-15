@@ -71,17 +71,17 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     private void setImageLinks(View google, View facebook, View twitter, View email) {
-        // JCalc icon => jordanjudt.com/jcalc
+        // JCalc icon => machonesoftware.com/projects.html
         findViewById(R.id.image_jcalc).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.jordanjudt.com/jcalc")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.machonesoftware.com/projects.html")));
             }
         });
 
-        // Mach One Software icon => jordanjudt.com
+        // Mach One Software icon => machonesoftware.com
         findViewById(R.id.image_machone).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.jordanjudt.com")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.machonesoftware.com")));
             }
         });
 
@@ -118,10 +118,10 @@ public class AboutActivity extends AppCompatActivity {
             }
         });
 
-        // Email => apps@jordanjudt.com
+        // Email => jcalc@machonesoftware.com
         email.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:apps@jordanjudt.com?subject=JCalc%20Feedback")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:jcalc@machonesoftware.com?subject=JCalc%20Feedback")));
             }
         });
     }
