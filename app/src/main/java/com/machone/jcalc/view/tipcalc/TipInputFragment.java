@@ -12,7 +12,6 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.TableLayout;
 
@@ -36,6 +35,7 @@ public class TipInputFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_tip_input, container, false);
         registerClickListeners(view);
+        listener.setContainerWidth(getTotalButtonWidth());
 
         view.post(new Runnable() {
             @Override
@@ -67,6 +67,7 @@ public class TipInputFragment extends Fragment {
     public interface OnTipInputListener {
         void onSubtotalChanged(String formattedSubtotal);
         void onSubmitButtonPressed();
+        void setContainerWidth(int width);
     }
 
     private void registerClickListeners(View view) {
@@ -126,6 +127,12 @@ public class TipInputFragment extends Fragment {
         String cents = out.substring(out.length() - 2);
 
         return dollars + "." + cents;
+    }
+
+    private int getTotalButtonWidth(){
+        final int BUTTON_MARGIN = getResources().getDimensionPixelOffset(R.dimen.tipCalcButtonHorizontalMargin) * 6;
+        final int BUTTON_WIDTH = getResources().getDimensionPixelOffset(R.dimen.tipCalcButtons) * 3;
+        return BUTTON_MARGIN + BUTTON_WIDTH;
     }
 
     private void setButtonHeight(View view) {
