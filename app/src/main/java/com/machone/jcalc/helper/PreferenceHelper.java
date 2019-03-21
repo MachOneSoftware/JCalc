@@ -17,12 +17,16 @@ public class PreferenceHelper {
     private static final String VERSION_CODE = "verison_code";
     private static final String THEME_ID = "theme_id";
     private static final String CUSTOM_TIP_SHOWN = "custom_tip_tooltip_shown";
+    private static final String TAP_TO_RESET_SHOWN = "tipcalc_tap_to_reset_tooltip_shown";
+    private static final String BACK_TO_MAIN_SHOWN = "tipcalc_tap_to_reset_tooltip_shown";
 
     //== Default Values ====================
 
     private static final int VERSION_CODE_DEFAULT = 0;
     private static final int THEME_ID_DEFAULT = 0;
     private static final boolean CUSTOM_TIP_SHOWN_DEFAULT = false;
+    private static final boolean TAP_TO_RESET_SHOWN_DEFAULT = false;
+    private static final boolean BACK_TO_MAIN_SHOWN_DEFAULT = false;
 
     //== Constructor and Dependencies ======
     private final SharedPreferences sharedPreferences;
@@ -62,6 +66,10 @@ public class PreferenceHelper {
         return sharedPreferences.getBoolean(CUSTOM_TIP_SHOWN, CUSTOM_TIP_SHOWN_DEFAULT);
     }
 
+    public boolean getTapToResetTooltipShown(){
+        return sharedPreferences.getBoolean(TAP_TO_RESET_SHOWN, TAP_TO_RESET_SHOWN_DEFAULT);
+    }
+
     //== Setters ===========================
 
     public int saveCurrentVersionCode(Context context){
@@ -83,5 +91,9 @@ public class PreferenceHelper {
 
     public void setCustomTipTooltipShown(){
         sharedPreferences.edit().putBoolean(CUSTOM_TIP_SHOWN, true).apply();
+    }
+
+    public void setTapToResetTooltipShown(){
+        sharedPreferences.edit().putBoolean(TAP_TO_RESET_SHOWN, true).apply();
     }
 }

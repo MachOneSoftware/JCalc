@@ -29,12 +29,21 @@ public class TipInputFragment extends Fragment {
     private OnTipInputListener listener;
     private String subtotal = "";
 
+    public interface OnTipInputListener {
+        void onSubtotalChanged(String formattedSubtotal);
+
+        void onSubmitButtonPressed();
+
+        void setContainerWidth(int width);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_tip_input, container, false);
         registerClickListeners(view);
+
         listener.setContainerWidth(getTotalButtonWidth());
 
         view.post(new Runnable() {
@@ -64,12 +73,6 @@ public class TipInputFragment extends Fragment {
         listener = null;
     }
 
-    public interface OnTipInputListener {
-        void onSubtotalChanged(String formattedSubtotal);
-        void onSubmitButtonPressed();
-        void setContainerWidth(int width);
-    }
-
     private void registerClickListeners(View view) {
         View.OnClickListener numberListener = new View.OnClickListener() {
             public void onClick(View v) {
@@ -85,16 +88,10 @@ public class TipInputFragment extends Fragment {
             }
         };
 
-        view.findViewById(R.id.zero).setOnClickListener(numberListener);
-        view.findViewById(R.id.one).setOnClickListener(numberListener);
-        view.findViewById(R.id.two).setOnClickListener(numberListener);
-        view.findViewById(R.id.three).setOnClickListener(numberListener);
-        view.findViewById(R.id.four).setOnClickListener(numberListener);
-        view.findViewById(R.id.five).setOnClickListener(numberListener);
-        view.findViewById(R.id.six).setOnClickListener(numberListener);
-        view.findViewById(R.id.seven).setOnClickListener(numberListener);
-        view.findViewById(R.id.eight).setOnClickListener(numberListener);
-        view.findViewById(R.id.nine).setOnClickListener(numberListener);
+        View[] buttons = getDigitButtons(view);
+        for(int i = 0; i < buttons.length; i++){
+            buttons[i].setOnClickListener(numberListener);
+        }
 
         view.findViewById(R.id.submit).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -129,7 +126,7 @@ public class TipInputFragment extends Fragment {
         return dollars + "." + cents;
     }
 
-    private int getTotalButtonWidth(){
+    private int getTotalButtonWidth() {
         final int BUTTON_MARGIN = getResources().getDimensionPixelOffset(R.dimen.tipCalcButtonHorizontalMargin) * 6;
         final int BUTTON_WIDTH = getResources().getDimensionPixelOffset(R.dimen.tipCalcButtons) * 3;
         return BUTTON_MARGIN + BUTTON_WIDTH;
@@ -184,26 +181,32 @@ public class TipInputFragment extends Fragment {
             statusBarHeight = getResources().getDimensionPixelSize(resourceId);
 
         // Calculate usable space for buttons
-        int usable = usableHeight - actionbarHeight - INPUT_HEIGHT - INPUT_MARGIN - BANNER_AD_HEIGHT - BUTTON_MARGIN - softKeyHeight + statusBarHeight;
-        int buttonHeight = usable / BUTTON_ROWS;
+        usableHeight = usableHeight - actionbarHeight - INPUT_HEIGHT - INPUT_MARGIN -BUTTON_MARGIN - BANNER_AD_HEIGHT - softKeyHeight + statusBarHeight;
 
         // Get and set LayoutParams
-        Button zero = view.findViewById(R.id.zero);
-        ViewGroup.LayoutParams params = zero.getLayoutParams();
-        params.height = buttonHeight;
+        View[] buttons = getDigitButtons(view);
+        ViewGroup.LayoutParams params = buttons[0].getLayoutParams();
+        params.height = usableHeight / BUTTON_ROWS;
 
-        // Set LayoutParams for each button
-        zero.setLayoutParams(params);
-        view.findViewById(R.id.one).setLayoutParams(params);
-        view.findViewById(R.id.two).setLayoutParams(params);
-        view.findViewById(R.id.three).setLayoutParams(params);
-        view.findViewById(R.id.four).setLayoutParams(params);
-        view.findViewById(R.id.five).setLayoutParams(params);
-        view.findViewById(R.id.six).setLayoutParams(params);
-        view.findViewById(R.id.seven).setLayoutParams(params);
-        view.findViewById(R.id.eight).setLayoutParams(params);
-        view.findViewById(R.id.nine).setLayoutParams(params);
+        for(int i = 0; i < buttons.length; i++){
+            buttons[i].setLayoutParams(params);
+        }
         view.findViewById(R.id.cancel).setLayoutParams(params);
         view.findViewById(R.id.submit).setLayoutParams(params);
+    }
+
+    private View[] getDigitButtons(View view) {
+        return new View[]{
+                view.findViewById(R.id.zero),
+                view.findViewById(R.id.one),
+                view.findViewById(R.id.two),
+                view.findViewById(R.id.three),
+                view.findViewById(R.id.four),
+                view.findViewById(R.id.five),
+                view.findViewById(R.id.six),
+                view.findViewById(R.id.seven),
+                view.findViewById(R.id.eight),
+                view.findViewById(R.id.nine)
+        };
     }
 }
