@@ -1,7 +1,7 @@
 package com.machone.jcalc.view.tipcalc;
 
-import android.content.SharedPreferences;
 import android.content.pm.ShortcutManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,14 +25,18 @@ import com.machone.jcalc.R;
 import com.machone.jcalc.helper.PreferenceHelper;
 import com.machone.jcalc.view.extension.NonSwipeableViewPager;
 
+import java.util.ArrayList;
 import java.util.Random;
 
-public class TipCalcActivity extends AppCompatActivity implements TipInputFragment.OnTipInputListener, TipOutputFragment.OnTipOutputListener {
+public class TipCalcActivity extends AppCompatActivity implements TipInputFragment.OnTipInputListener {
+    private final String TAG = "TipCalcActivity";
     private final int TIP_INPUT_FRAGMENT = 0;
     private final int TIP_OUTPUT_FRAGMENT = 1;
 
+    private ArrayList<ViewTooltip> tooltips;
     private TextView subtotalTextView;
     private NonSwipeableViewPager viewPager;
+    private AdView banner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +52,15 @@ public class TipCalcActivity extends AppCompatActivity implements TipInputFragme
         subtotalTextView = findViewById(R.id.textview_subtotal_input);
         viewPager = findViewById(R.id.container);
 
-        // TODO set height of view pager
-        // TODO calculate distance between bottom of subtotal and bottom of layout
-
         initializeBannerAd();
         setupViewPager(viewPager);
+
+        subtotalTextView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (viewPager.getCurrentItem() == TIP_OUTPUT_FRAGMENT)
+                    reset();
+            }
+        });
     }
 
     @Override
@@ -66,30 +75,43 @@ public class TipCalcActivity extends AppCompatActivity implements TipInputFragme
             Toast.makeText(this, getString(R.string.tip_enter_value), Toast.LENGTH_SHORT).show();
         else {
             viewPager.setCurrentItem(TIP_OUTPUT_FRAGMENT);
-            TipOutputFragment fragment = ((TipOutputFragment)((FragmentStatePagerAdapter) viewPager.getAdapter()).getItem(TIP_OUTPUT_FRAGMENT));
+            TipOutputFragment fragment = ((TipOutputFragment) ((FragmentStatePagerAdapter) viewPager.getAdapter()).getItem(TIP_OUTPUT_FRAGMENT));
             fragment.setTipOutput(subtotalText);
 
+            tooltips = new ArrayList<>();
             PreferenceHelper preferenceHelper = PreferenceHelper.getInstance(this);
             if (!preferenceHelper.getCustomTipTooltipShown()) {
-                fragment.showCustomTipTooltip();
+                ViewTooltip t = fragment.getCustomTipTooltip();
+                t.show();
+                tooltips.add(t);
                 preferenceHelper.setCustomTipTooltipShown();
+            }
+            if (!preferenceHelper.getTapToResetTooltipShown()) {
+                ViewTooltip t = getTapToResetTooltip();
+                t.show();
+                tooltips.add(t);
+                preferenceHelper.setTapToResetTooltipShown();
             }
         }
     }
 
     @Override
-    public void onResetButtonPressed() {
+    public void setContainerWidth(int width) {
+        NonSwipeableViewPager container = findViewById(R.id.container);
+        ViewGroup.LayoutParams params = container.getLayoutParams();
+        params.width = width;
+        container.setLayoutParams(params);
+    }
+
+    private void reset() {
+        for (int i = 0; i < tooltips.size(); i++)
+            tooltips.get(i).close();
         viewPager.setCurrentItem(TIP_INPUT_FRAGMENT);
         resetDisplay();
     }
 
-    @Override
-    public void onDoneButtonPressed() {
-        finish();
-    }
-
     private void initializeBannerAd() {
-        AdView banner = new AdView(this);
+        banner = new AdView(this);
         if (Build.VERSION.SDK_INT >= 17) {
             banner.setId(View.generateViewId());
         } else {
@@ -126,5 +148,16 @@ public class TipCalcActivity extends AppCompatActivity implements TipInputFragme
                 return tipFragments[position];
             }
         });
+    }
+
+    public ViewTooltip getTapToResetTooltip() {
+        return ViewTooltip
+                .on(findViewById(R.id.textview_subtotal_input))
+                .autoHide(true, 10000)
+                .clickToHide(true)
+                .position(ViewTooltip.Position.RIGHT)
+                .text(getString(R.string.tooltip_new_feature_tipcalc_tap_to_reset))
+                .color(Color.BLACK)
+                .textColor(Color.WHITE);
     }
 }
