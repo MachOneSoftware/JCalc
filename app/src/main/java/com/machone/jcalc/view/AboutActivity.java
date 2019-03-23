@@ -2,6 +2,7 @@ package com.machone.jcalc.view;
 
 import android.content.Intent;
 import android.content.pm.PackageInfo;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,9 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.github.florent37.viewtooltip.ViewTooltip;
 import com.machone.jcalc.R;
+import com.machone.jcalc.helper.PreferenceHelper;
 
 public class AboutActivity extends AppCompatActivity {
+    // Support images with TextView on older Android
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
@@ -36,16 +40,27 @@ public class AboutActivity extends AppCompatActivity {
         }
 
         ((TextView) findViewById(R.id.textview_version))
-                .setText(getResources().getString(
+                .setText(getString(
                         R.string.about_jcalc_version,
                         version
                 ));
 
-        setImageWidths();
-        setImageLinks();
+        View google = findViewById(R.id.text_review);
+        View facebook = findViewById(R.id.text_facebook);
+        View twitter = findViewById(R.id.text_twitter);
+        View email = findViewById(R.id.text_email);
+
+        setImageWidths(google,facebook,twitter,email);
+        setImageLinks(google,facebook,twitter,email);
+
+        PreferenceHelper preferenceHelper = PreferenceHelper.getInstance(this);
+        if (!preferenceHelper.getAboutWebsiteTooltipShown()) {
+            showWebsiteTooltip();
+            preferenceHelper.setAboutWebsiteTooltipShown();
+        }
     }
 
-    private void setImageWidths() {
+    private void setImageWidths(View google, View facebook, View twitter, View email) {
         final int SOCIAL_BUTTON_COUNT = 4;
 
         // Get usable screen width
@@ -54,34 +69,33 @@ public class AboutActivity extends AppCompatActivity {
         int buttonWidth = displayRect.width() / SOCIAL_BUTTON_COUNT;
 
         // Get and set LayoutParams
-        TextView googlePlay = findViewById(R.id.text_review);
-        ViewGroup.LayoutParams params = googlePlay.getLayoutParams();
+        ViewGroup.LayoutParams params = google.getLayoutParams();
         params.width = buttonWidth;
 
         // Set LayoutParams for each button
-        googlePlay.setLayoutParams(params);
-        findViewById(R.id.text_facebook).setLayoutParams(params);
-        findViewById(R.id.text_twitter).setLayoutParams(params);
-        findViewById(R.id.text_email).setLayoutParams(params);
+        google.setLayoutParams(params);
+        facebook.setLayoutParams(params);
+        twitter.setLayoutParams(params);
+        email.setLayoutParams(params);
     }
 
-    private void setImageLinks() {
-        // JCalc icon => jordanjudt.com/jcalc
+    private void setImageLinks(View google, View facebook, View twitter, View email) {
+        // JCalc icon => machonesoftware.com/projects.html
         findViewById(R.id.image_jcalc).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.jordanjudt.com/jcalc")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.machonesoftware.com/projects.html")));
             }
         });
 
-        // Mach One Software icon => jordanjudt.com
+        // Mach One Software icon => machonesoftware.com
         findViewById(R.id.image_machone).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.jordanjudt.com")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.machonesoftware.com")));
             }
         });
 
         // Google Play => JCalc listing (Google Play app, website)
-        findViewById(R.id.text_review).setOnClickListener(new View.OnClickListener() {
+        google.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.machone.jcalc")));
@@ -92,7 +106,7 @@ public class AboutActivity extends AppCompatActivity {
         });
 
         // Facebook => Mach One Software page (Facebook app, website)
-        findViewById(R.id.text_facebook).setOnClickListener(new View.OnClickListener() {
+        facebook.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/175611059835415")));
@@ -103,7 +117,7 @@ public class AboutActivity extends AppCompatActivity {
         });
 
         // Twitter => Mach One Software profile (Twitter app, website)
-        findViewById(R.id.text_twitter).setOnClickListener(new View.OnClickListener() {
+        twitter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=MachOneSoftware")));
@@ -113,11 +127,23 @@ public class AboutActivity extends AppCompatActivity {
             }
         });
 
-        // Email => apps@jordanjudt.com
-        findViewById(R.id.text_email).setOnClickListener(new View.OnClickListener() {
+        // Email => jcalc@machonesoftware.com
+        email.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:apps@jordanjudt.com?subject=JCalc%20Feedback")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:jcalc@machonesoftware.com?subject=JCalc%20Feedback")));
             }
         });
+    }
+
+    public void showWebsiteTooltip() {
+        ViewTooltip
+                .on(findViewById(R.id.image_machone))
+                .autoHide(true, 5000)
+                .clickToHide(true)
+                .position(ViewTooltip.Position.BOTTOM)
+                .text(getString(R.string.tooltip_new_feature_about_website))
+                .color(Color.BLACK)
+                .textColor(Color.WHITE)
+                .show();
     }
 }

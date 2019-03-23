@@ -10,21 +10,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1486657922060319~2940576112" />
+
         <activity
             android:name=".view.MainActivity"
             android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="http"
+                <data
                     android:host="www.jordanjudt.com"
-                    android:pathPrefix="/jcalc" />
+                    android:pathPrefix="/jcalc"
+                    android:scheme="http" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -32,16 +39,19 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data android:scheme="jcalc" />
-
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
 
         <activity
             android:name=".view.AboutActivity"
             android:label="@string/title_activity_about"
             android:parentActivityName=".view.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.machone.jcalc.view.MainActivity" />
@@ -51,8 +61,9 @@
             android:name=".view.tipcalc.TipCalcActivity"
             android:label="@string/title_activity_tip_calc"
             android:parentActivityName=".view.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.machone.jcalc.view.MainActivity" />

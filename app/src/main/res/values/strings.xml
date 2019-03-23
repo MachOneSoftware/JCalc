@@ -5,24 +5,32 @@
     <string name="TipCalculator">Tip Calculator</string>
     <string name="About">About</string>
 
-    <string name="reset">Reset</string>
-    <string name="done">Done</string>
+    <string name="shortcut_tipcalc_id">tip_calc</string>
+    <string name="shortcut_tipcalc_label_short">TipCalc</string>
+    <string name="shortcut_tipcalc_label_long">Tip Calculator</string>
+
+    <string name="tooltip_new_feature_tipcalc_custom_percentage">Now you can enter a custom percentage!</string>
+    <string name="tooltip_new_feature_tipcalc_tap_to_reset">Tap the subtotal to go back and enter a new value.</string>
+    <string name="tooltip_new_feature_about_website">Tap the logo to check out our new website!</string>
+
     <string name="subtotal">Subtotal:</string>
     <string name="suggested_tips">Suggested Tip:</string>
     <string name="percent15">15%:</string>
     <string name="percent175">17.5%:</string>
     <string name="percent20">20%:</string>
-    <string name="percent25">25%:</string>
+    <string name="tip_custom_percent_default">25</string>
+    <string name="percent">%:</string>
     <string name="tip_default_output">$0.00</string>
     <string name="tip_output">$%s</string>
+    <string name="tip_enter_value">Enter a value before submitting</string>
 
     <string name="dismiss">Dismiss</string>
     <string name="whats_new_title_update">What\'s New</string>
     <string name="whats_new_title_first_install">Welcome to JCalc!</string>
     <string name="whats_new_text">JCalc %s\n\n%s</string>
 
-    <string name="whats_new_update">Thanks for updating JCalc! This release includes several bug fixes.
-        Additionally, the tip calculator is a little more pretty, and the about page has been updated. Enjoy!</string>
+    <string name="whats_new_update">Thanks for updating JCalc! This release includes a couple of enhancements to the Tip Calculator, including a custom percentage field. Also, a non-intrusive
+        banner ad is being introduced to the bottom of the calculator screens. (Hey, a guy\'s gotta get paid! :)) Enjoy!</string>
     <string name="whats_new_first_install">I hope you enjoy the fun interface of a
         simple calculator. Be sure to check out the tip calculator when you go out to eat. I would
         appreciate hearing any feedback you have! Visit the about page for contact options. Enjoy!</string>
@@ -78,5 +86,11 @@
     <string name="facebook_icon">Facebook icon</string>
     <string name="twitter_icon">Twitter icon</string>
     <string name="email_icon">Email icon</string>
+
+    <!-- Keys and IDs -->
+    <string name="admob_app_id">ca-app-pub-1486657922060319~2940576112</string>
+    <string name="admob_main_activity_unit_id">ca-app-pub-1486657922060319/5841646597</string>
+    <string name="admob_tipcalc_activity_unit_id">ca-app-pub-1486657922060319/6233201283</string>
+    <string name="admob_test_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 
 </resources>

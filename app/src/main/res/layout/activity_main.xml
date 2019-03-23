@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,7 +9,7 @@
         android:id="@+id/input"
         style="@style/main_input"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/mainInputHeight"
+        android:layout_height="100dp"
         android:layout_marginBottom="@dimen/margin_8dp"
         android:cursorVisible="false"
         android:editable="false"
@@ -19,12 +19,14 @@
         android:minLines="1"
         android:scrollHorizontally="true"
         android:singleLine="true"
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
 
     <TableLayout
         android:id="@+id/table_buttons"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TableRow
             android:layout_width="match_parent"
