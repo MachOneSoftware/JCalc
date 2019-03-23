@@ -11,6 +11,7 @@
 
     <string name="tooltip_new_feature_tipcalc_custom_percentage">Now you can enter a custom percentage!</string>
     <string name="tooltip_new_feature_tipcalc_tap_to_reset">Tap the subtotal to go back and enter a new value.</string>
+    <string name="tooltip_new_feature_about_website">Tap the logo to check out our new website!</string>
 
     <string name="subtotal">Subtotal:</string>
     <string name="suggested_tips">Suggested Tip:</string>
@@ -28,10 +29,8 @@
     <string name="whats_new_title_first_install">Welcome to JCalc!</string>
     <string name="whats_new_text">JCalc %s\n\n%s</string>
 
-    <string name="whats_new_update">Thanks for updating JCalc! This release introduces a non-intrusive
-        banner ad to the bottom of the calculator screens. (Hey, a guy\'s gotta get paid! :)) Also included are
-        a couple of enhancements to the Tip Calculator, including a custom percentage field.
-        I know it's been a while, so I hope this update was worth the wait. Enjoy!</string>
+    <string name="whats_new_update">Thanks for updating JCalc! This release includes a couple of enhancements to the Tip Calculator, including a custom percentage field. Also, a non-intrusive
+        banner ad is being introduced to the bottom of the calculator screens. (Hey, a guy\'s gotta get paid! :)) Enjoy!</string>
     <string name="whats_new_first_install">I hope you enjoy the fun interface of a
         simple calculator. Be sure to check out the tip calculator when you go out to eat. I would
         appreciate hearing any feedback you have! Visit the about page for contact options. Enjoy!</string>

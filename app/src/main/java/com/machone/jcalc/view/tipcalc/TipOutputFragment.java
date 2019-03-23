@@ -55,7 +55,7 @@ public class TipOutputFragment extends Fragment {
     public ViewTooltip getCustomTipTooltip() {
         return ViewTooltip
                 .on(customPercentage)
-                .autoHide(true, 10000)
+                .autoHide(true, 7000)
                 .clickToHide(true)
                 .position(ViewTooltip.Position.LEFT)
                 .text(getString(R.string.tooltip_new_feature_tipcalc_custom_percentage))

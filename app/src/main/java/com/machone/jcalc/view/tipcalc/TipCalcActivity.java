@@ -153,7 +153,7 @@ public class TipCalcActivity extends AppCompatActivity implements TipInputFragme
     public ViewTooltip getTapToResetTooltip() {
         return ViewTooltip
                 .on(findViewById(R.id.textview_subtotal_input))
-                .autoHide(true, 10000)
+                .autoHide(true, 6000)
                 .clickToHide(true)
                 .position(ViewTooltip.Position.RIGHT)
                 .text(getString(R.string.tooltip_new_feature_tipcalc_tap_to_reset))

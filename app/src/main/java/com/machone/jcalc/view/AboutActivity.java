@@ -2,6 +2,7 @@ package com.machone.jcalc.view;
 
 import android.content.Intent;
 import android.content.pm.PackageInfo;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,7 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.github.florent37.viewtooltip.ViewTooltip;
 import com.machone.jcalc.R;
+import com.machone.jcalc.helper.PreferenceHelper;
 
 public class AboutActivity extends AppCompatActivity {
     // Support images with TextView on older Android
@@ -49,6 +52,12 @@ public class AboutActivity extends AppCompatActivity {
 
         setImageWidths(google,facebook,twitter,email);
         setImageLinks(google,facebook,twitter,email);
+
+        PreferenceHelper preferenceHelper = PreferenceHelper.getInstance(this);
+        if (!preferenceHelper.getAboutWebsiteTooltipShown()) {
+            showWebsiteTooltip();
+            preferenceHelper.setAboutWebsiteTooltipShown();
+        }
     }
 
     private void setImageWidths(View google, View facebook, View twitter, View email) {
@@ -124,5 +133,17 @@ public class AboutActivity extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:jcalc@machonesoftware.com?subject=JCalc%20Feedback")));
             }
         });
+    }
+
+    public void showWebsiteTooltip() {
+        ViewTooltip
+                .on(findViewById(R.id.image_machone))
+                .autoHide(true, 5000)
+                .clickToHide(true)
+                .position(ViewTooltip.Position.BOTTOM)
+                .text(getString(R.string.tooltip_new_feature_about_website))
+                .color(Color.BLACK)
+                .textColor(Color.WHITE)
+                .show();
     }
 }
